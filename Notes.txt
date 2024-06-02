@@ -1,0 +1,17 @@
+4c 61 72 72 79 - Larry
+75 6E 6F 77 6E - unown
+4D 61 72 74 68 61 - Martha
+53 68 75 63 6B 69 65 - Shuckie
+
+Add 1C for Lowercase
+Add 16 for Uppercase
+
+Add 36 for no nickname
+
+82: 10000010
+D8: 11011000
+B5: 10110101
+1C: 00011100
+16: 00010110
+
+36: 00110110
