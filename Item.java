@@ -6,19 +6,29 @@ public class Item {
 
     public Item(int index) {
         this.index = index;
-        setName(index);
+        setName();
     }
 
     public void setIndex(int index) {
         this.index = index;
-        setName(index);
+        setName();
     }
 
-    private void setName(int index) {
-        
+    private void setName() {
+        PokeDB db = new PokeDB();
+        db.select("Items", "name", "item_number = " + index);
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getFilePath() {
+        String path = "Items/" + getName();
+
+        path.replaceAll(" ", "_");
+        path += ".png";
+
+        return path;
     }
 }

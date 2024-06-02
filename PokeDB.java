@@ -154,7 +154,7 @@ public class PokeDB {
         createTable("Items", "item_number int primary key", "name text not null");
     }
 
-    public Vector<String> selectQuery(String tableName, String columnName, String whereClause) {
+    public Vector<String> select(String tableName, String columnName, String whereClause) {
         Vector<String> q = new Vector<String>();
 
         try {

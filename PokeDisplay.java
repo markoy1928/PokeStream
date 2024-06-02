@@ -12,7 +12,7 @@ public class PokeDisplay {
     private static Game game;
 
     public static void main(String[] args) {
-        //resetDatabase();
+        // resetDatabase();
         readConfig();
         readData();
 

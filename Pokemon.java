@@ -11,7 +11,7 @@ public class Pokemon {
     private int maxHP;
     private int level;
     private Status status;
-    private int item;
+    private Item item;
     private boolean egg;
     private Move[] moves;
 
@@ -25,7 +25,7 @@ public class Pokemon {
         this.maxHP = maxHP;
         this.level = level;
         this.status = numToStatus(status);
-        this.item = item;
+        this.item = new Item(item);
         this.egg = egg;
         this.moves = moves;
         this.species = setSpecies();
@@ -33,7 +33,7 @@ public class Pokemon {
 
     private String setForm(int form) {
         PokeDB db = new PokeDB();
-        Vector<String> forms = db.selectQuery("Pokemon", "form", "dex = " + dexNo);
+        Vector<String> forms = db.select("Pokemon", "form", "dex = " + dexNo);
 
         if (forms.isEmpty() || forms.size() == 1) {
             return null;
@@ -377,7 +377,7 @@ public class Pokemon {
         return egg;
     }
 
-    public int getItem() {
+    public Item getItem() {
         return item;
     }
 
@@ -388,7 +388,7 @@ public class Pokemon {
     public String setSpecies() {
         // Query database for Pokemon Species Name
         PokeDB db = new PokeDB();
-        Vector<String> sps = db.selectQuery("Pokemon", "species", "dex = " + dexNo);
+        Vector<String> sps = db.select("Pokemon", "species", "dex = " + dexNo);
 
         if (sps.isEmpty()) {
             return null;

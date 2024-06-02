@@ -1,7 +1,9 @@
 import javax.swing.JPanel;
+import javax.swing.OverlayLayout;
 import javax.swing.SwingConstants;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -69,7 +71,7 @@ public class PartyPanel extends JPanel {
         super.paintComponent(g);
     }
 
-    private class PokePanel extends JPanel {
+    private class PokePanel extends JLayeredPane {
         private static final int DIM_WIDTH = 150;
         private static final int DIM_HEIGHT = 350;
         private Pokemon pokemon;
@@ -82,7 +84,7 @@ public class PartyPanel extends JPanel {
 
         public PokePanel(Pokemon pk, Color bgColor) {
             pokemon = pk;
-            this.setLayout(new BorderLayout());
+            this.setLayout(new OverlayLayout(this));
             this.backgroundColor = bgColor;
             
             try {
@@ -92,7 +94,7 @@ public class PartyPanel extends JPanel {
                 Icon icon = new ImageIcon(imgUrl);
 
                 // Get image for item
-                File f2 = new File(pokemon.getFilePath());
+                File f2 = new File(pokemon.getItem().getFilePath());
                 URL imgUrl2 = f2.toURI().toURL();
                 Icon itemIcon = new ImageIcon(imgUrl2);
     
@@ -101,12 +103,21 @@ public class PartyPanel extends JPanel {
                 int y = (icon.getIconHeight() * 3) / 2;
                 ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(x, y, Image.SCALE_FAST));
 
+                // Change the size of the item
+                ((ImageIcon) itemIcon).setImage(((ImageIcon) itemIcon).getImage().getScaledInstance(40, 40, Image.SCALE_FAST));
+
                 // Add images for pokemon items
                 pokemonItem = new JPanel();
-                pokemonItem.setBackground(bgColor);
+                pokemonItem.setOpaque(false);
                 pokemonItem.setPreferredSize(new Dimension(50, 50));
-                // JLabel
-    
+                JLabel pkItem = new JLabel(itemIcon);
+                pkItem.setSize(new Dimension(50, 50));
+                pokemonItem.add(pkItem);
+
+                // Set position
+                pokemonItem.setAlignmentX(0.0f);
+                pokemonItem.setAlignmentY(0.0008f);
+
                 // Add gif for pokemon
                 pokemonGif = new JPanel(new BorderLayout());
                 pokemonGif.setBackground(bgColor);
@@ -139,6 +150,7 @@ public class PartyPanel extends JPanel {
 
             JPanel upper = new JPanel();
             JPanel middle = new JPanel(new BorderLayout());
+            JPanel main = new JPanel(new BorderLayout());
             upper.setBackground(bgColor);
             upper.setPreferredSize(new Dimension(150, 250));
             middle.setBackground(bgColor);
@@ -147,8 +159,11 @@ public class PartyPanel extends JPanel {
             upper.add(middle, BorderLayout.NORTH);
             upper.add(pokemonHealth, BorderLayout.SOUTH);
             
-            this.add(upper, BorderLayout.NORTH);
-            this.add(statusBar, BorderLayout.SOUTH);
+            main.add(upper, BorderLayout.NORTH);
+            main.add(statusBar, BorderLayout.SOUTH);
+
+            this.add(main, JLayeredPane.DEFAULT_LAYER, 0);
+            this.add(pokemonItem, JLayeredPane.PALETTE_LAYER, 1);
         }
 
         public Dimension getPreferredSize() {
