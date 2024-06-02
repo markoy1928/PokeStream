@@ -33,7 +33,7 @@ public class Pokemon {
 
     private String setForm(int form) {
         PokeDB db = new PokeDB();
-        Vector<String> forms = db.selectQuery(String.format("select form from pokemon where dex = %d", dexNo));
+        Vector<String> forms = db.selectQuery("Pokemon", "form", "dex = " + dexNo);
 
         if (forms.isEmpty() || forms.size() == 1) {
             return null;
@@ -388,7 +388,7 @@ public class Pokemon {
     public String setSpecies() {
         // Query database for Pokemon Species Name
         PokeDB db = new PokeDB();
-        Vector<String> sps = db.selectQuery(String.format("select species from pokemon where dex = %d", dexNo));
+        Vector<String> sps = db.selectQuery("Pokemon", "species", "dex = " + dexNo);
 
         if (sps.isEmpty()) {
             return null;

@@ -122,10 +122,10 @@ public class BadgesPanel extends JPanel {
             String badgeName;
             
             if (game.getRegion() == "Johto" && gymNumber > 8) {
-                badgeName = db.selectQuery(String.format("select badge_name from gyms where region = 'Kanto' and gym_number = %d", gymNumber - 8)).get(0);
+                badgeName = db.selectQuery("Gyms", "badge_name", "region = 'Kanto' and gym_number = " + (gymNumber - 8)).get(0);
             }
             else {
-                badgeName = db.selectQuery(String.format("select badge_name from gyms where region = '%s' and gym_number = %d", game.getRegion(), gymNumber)).get(0);
+                badgeName = db.selectQuery("Gyms", "badge_name", String.format("region = '%s' and gym_number = %d", game.getRegion(), gymNumber)).get(0);
             }
 
             // Determine if the badge has been received yet

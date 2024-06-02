@@ -32,23 +32,26 @@ public class PokeDB {
         dropPokemonTable();
         dropMoveTable();
         dropGymTable();
+        dropItemsTable();
     }
 
     private void createAllTables() {
         createPokemonTable();
         createMoveTable();
         createGymTable();
+        createItemsTable();
     }
 
     private void insertTableData() {
         insertPokemonData();
         insertMoveData();
         insertGymData();
+        insertItemsData();
     }
 
-    private void insertPokemonData() {
+    private void insertData(String filePath) {
         try {
-            File f = new File("SQL/insert_pokemon.sql");
+            File f = new File(filePath);
             Scanner fileReader = new Scanner(f);
 
             Connection con = DriverManager.getConnection(dbPath);
@@ -67,25 +70,29 @@ public class PokeDB {
         }
     }
 
-    private void insertMoveData() {
+    private void insertPokemonData() {
+        insertData("SQL/insert_pokemon.sql");
+    }
 
+    private void insertMoveData() {
+        insertData("SQL/insert_moves.sql");
     }
 
     private void insertGymData() {
-        try {
-            File f = new File("SQL/insert_gyms.sql");
-            Scanner fileReader = new Scanner(f);
+        insertData("SQL/insert_gyms.sql");
+    }
 
+    private void insertItemsData() {
+        insertData("SQL/insert_items.sql");
+    }
+
+    private void dropTable(String tableName) {
+        try {
             Connection con = DriverManager.getConnection(dbPath);
             Statement stmt = con.createStatement();
-
-            while (fileReader.hasNextLine()) {
-                stmt.executeUpdate(fileReader.nextLine());
-            }
-
-            fileReader.close();
+            stmt.executeUpdate("drop table " + tableName);
         }
-        catch (Exception e) {
+        catch (SQLException e) {
             System.err.println("ERROR: " + e.getMessage());
             System.err.println(e.getStackTrace()[0].getLineNumber());
             System.err.println(e.getStackTrace()[0].getFileName());
@@ -93,36 +100,36 @@ public class PokeDB {
     }
 
     private void dropPokemonTable() {
-        try {
-            Connection con = DriverManager.getConnection(dbPath);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("drop table pokemon");
-        }
-        catch (SQLException e) {
-            System.err.println("ERROR: " + e.getMessage());
-            System.err.println(e.getStackTrace()[0].getLineNumber());
-            System.err.println(e.getStackTrace()[0].getFileName());
-        }
+        dropTable("Pokemon");
     }
 
     private void dropMoveTable() {
-        try {
-            Connection con = DriverManager.getConnection(dbPath);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("drop table moves");
-        }
-        catch (SQLException e) {
-            System.err.println("ERROR: " + e.getMessage());
-            System.err.println(e.getStackTrace()[0].getLineNumber());
-            System.err.println(e.getStackTrace()[0].getFileName());
-        }
+        dropTable("Moves");
     }
 
     private void dropGymTable() {
+        dropTable("Gyms");
+    }
+
+    private void dropItemsTable() {
+        dropTable("Items");
+    }
+
+    private void createTable(String tableName, String... createParameters) {
         try {
             Connection con = DriverManager.getConnection(dbPath);
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("drop table gyms");
+            String createStatement = "create table " + tableName + " (";
+
+            for (int i = 0; i < createParameters.length; ++i) {
+                if (i > 0) {
+                    createStatement += ", ";
+                }
+
+                createStatement += createParameters[i];
+            }
+            createStatement += ")";
+            stmt.executeUpdate(createStatement);
         }
         catch (SQLException e) {
             System.err.println("ERROR: " + e.getMessage());
@@ -132,51 +139,28 @@ public class PokeDB {
     }
 
     private void createPokemonTable() {
-        try {
-            Connection con = DriverManager.getConnection(dbPath);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("create table pokemon (dex int not null, species text not null, form text, primary key (dex, form))");
-        }
-        catch (SQLException e) {
-            System.err.println("ERROR: " + e.getMessage());
-            System.err.println(e.getStackTrace()[0].getLineNumber());
-            System.err.println(e.getStackTrace()[0].getFileName());
-        }
+        createTable("Pokemon", "dex int not null", "species text not null", "form text", "primary key (dex, form)");
     }
 
     private void createMoveTable() {
-        try {
-            Connection con = DriverManager.getConnection(dbPath);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("create table moves (move_number int primary key, move text not null)");
-        }
-        catch (SQLException e) {
-            System.err.println("ERROR: " + e.getMessage());
-            System.err.println(e.getStackTrace()[0].getLineNumber());
-            System.err.println(e.getStackTrace()[0].getFileName());
-        }
+        createTable("Moves", "move_number int primary key", "move text not null");
     }
 
     private void createGymTable() {
-        try {
-            Connection con = DriverManager.getConnection(dbPath);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("create table gyms (region text not null, gym_number int not null, badge_name text not null, primary key (region, gym_number))");
-        }
-        catch (SQLException e) {
-            System.err.println("ERROR: " + e.getMessage());
-            System.err.println(e.getStackTrace()[0].getLineNumber());
-            System.err.println(e.getStackTrace()[0].getFileName());
-        }
+        createTable("Gyms","region text not null", "gym_number int not null", "badge_name text not null", "primary key (region, gym_number)");
     }
 
-    public Vector<String> selectQuery(String query) {
+    private void createItemsTable() {
+        createTable("Items", "item_number int primary key", "name text not null");
+    }
+
+    public Vector<String> selectQuery(String tableName, String columnName, String whereClause) {
         Vector<String> q = new Vector<String>();
 
         try {
             Connection con = DriverManager.getConnection(dbPath);
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet rs = stmt.executeQuery(String.format("select %s from %s where %s", columnName, tableName, whereClause));
 
             while (rs.next()) {
                 q.add(rs.getString(1));

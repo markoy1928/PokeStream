@@ -20,7 +20,7 @@ public class Move {
             // Query database for move name
             PokeDB db = new PokeDB();
 
-            Vector<String> moves = db.selectQuery(String.format("select move from moves where move_number = %d", moveNo));
+            Vector<String> moves = db.selectQuery("Moves", "move", "move_number = " + moveNo);
             
             if (moves.isEmpty()) {
                 return null;

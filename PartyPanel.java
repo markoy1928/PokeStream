@@ -75,6 +75,7 @@ public class PartyPanel extends JPanel {
         private Pokemon pokemon;
         private JPanel pokemonGif;
         private JPanel pokemonName;
+        private JPanel pokemonItem;
         private JPanel statusBar;
         private JPanel pokemonHealth;
         private Color backgroundColor;
@@ -85,17 +86,28 @@ public class PartyPanel extends JPanel {
             this.backgroundColor = bgColor;
             
             try {
+                // Get gif for pokemon
                 File f = new File(pokemon.getFilePath());
                 URL imgUrl = f.toURI().toURL();
                 Icon icon = new ImageIcon(imgUrl);
+
+                // Get image for item
+                File f2 = new File(pokemon.getFilePath());
+                URL imgUrl2 = f2.toURI().toURL();
+                Icon itemIcon = new ImageIcon(imgUrl2);
     
-                //Change the size of the gif
+                // Change the size of the gif
                 int x = (icon.getIconWidth() * 3) / 2;
                 int y = (icon.getIconHeight() * 3) / 2;
                 ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(x, y, Image.SCALE_FAST));
 
-                // TODO: Add item images
+                // Add images for pokemon items
+                pokemonItem = new JPanel();
+                pokemonItem.setBackground(bgColor);
+                pokemonItem.setPreferredSize(new Dimension(50, 50));
+                // JLabel
     
+                // Add gif for pokemon
                 pokemonGif = new JPanel(new BorderLayout());
                 pokemonGif.setBackground(bgColor);
                 pokemonGif.setPreferredSize(new Dimension(150, 150));
@@ -103,6 +115,7 @@ public class PartyPanel extends JPanel {
                 pkGif.setSize(new Dimension(150, 200));
                 pokemonGif.add(pkGif, BorderLayout.SOUTH);
 
+                // Add name and level of pokemon
                 pokemonName = new JPanel(new BorderLayout());
                 pokemonName.setBackground(bgColor);
                 JLabel pkLevel = new JLabel("Level " + pokemon.getLevel(), SwingConstants.CENTER);
@@ -114,7 +127,7 @@ public class PartyPanel extends JPanel {
                 pokemonName.add(pkName, BorderLayout.NORTH);
                 pokemonName.add(pkLevel, BorderLayout.SOUTH);
                 
-
+                // Add status and health of pokemon
                 createStatusEffect();
                 createHealthBar();
             }
