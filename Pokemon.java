@@ -460,6 +460,10 @@ public class Pokemon {
         BADLY_POISONED;
     }
 
+    public boolean hasItem() {
+        return item.exists();
+    }
+
     // Determine if 2 Pokemon are equal
     @Override
     public boolean equals(Object other) {

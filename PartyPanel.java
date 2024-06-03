@@ -93,26 +93,31 @@ public class PartyPanel extends JPanel {
                 URL imgUrl = f.toURI().toURL();
                 Icon icon = new ImageIcon(imgUrl);
 
-                // Get image for item
-                File f2 = new File(pokemon.getItem().getFilePath());
-                URL imgUrl2 = f2.toURI().toURL();
-                Icon itemIcon = new ImageIcon(imgUrl2);
-    
                 // Change the size of the gif
                 int x = (icon.getIconWidth() * 3) / 2;
                 int y = (icon.getIconHeight() * 3) / 2;
                 ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(x, y, Image.SCALE_FAST));
 
-                // Change the size of the item
-                ((ImageIcon) itemIcon).setImage(((ImageIcon) itemIcon).getImage().getScaledInstance(40, 40, Image.SCALE_FAST));
-
-                // Add images for pokemon items
+                // Set item stuff
                 pokemonItem = new JPanel();
                 pokemonItem.setOpaque(false);
-                pokemonItem.setPreferredSize(new Dimension(50, 50));
-                JLabel pkItem = new JLabel(itemIcon);
-                pkItem.setSize(new Dimension(50, 50));
-                pokemonItem.add(pkItem);
+
+                // Check if the pokemon has an item
+                if (pokemon.hasItem()) {
+                    // Get image for item
+                    File f2 = new File(pokemon.getItem().getFilePath());
+                    URL imgUrl2 = f2.toURI().toURL();
+                    Icon itemIcon = new ImageIcon(imgUrl2);
+
+                    // Change the size of the item
+                    ((ImageIcon) itemIcon).setImage(((ImageIcon) itemIcon).getImage().getScaledInstance(40, 40, Image.SCALE_FAST));
+
+                    // Add images for pokemon items
+                    pokemonItem.setPreferredSize(new Dimension(50, 50));
+                    JLabel pkItem = new JLabel(itemIcon);
+                    pkItem.setSize(new Dimension(50, 50));
+                    pokemonItem.add(pkItem);
+                }
 
                 // Set position
                 pokemonItem.setAlignmentX(0.0f);

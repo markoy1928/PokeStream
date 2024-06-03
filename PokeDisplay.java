@@ -10,35 +10,41 @@ public class PokeDisplay {
     private static Trainer player;
     private static Color backgroundColor;
     private static Game game;
+    private final static boolean resetDB = false;
 
     public static void main(String[] args) {
-        // resetDatabase();
-        readConfig();
-        readData();
+        if (resetDB) {
+            resetDatabase();
+            System.out.println("Database Reset!");
+        }
+        else {
+            readConfig();
+            readData();
 
-        PartyPanel partyPanel = new PartyPanel();
-        BadgesPanel badgePanel = new BadgesPanel();
+            PartyPanel partyPanel = new PartyPanel();
+            BadgesPanel badgePanel = new BadgesPanel();
 
-        new Thread(new Runnable() {
-            public void run() {
-                partyPanel.createPartyGUI(player.getParty(), backgroundColor);
-                badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
+            new Thread(new Runnable() {
+                public void run() {
+                    partyPanel.createPartyGUI(player.getParty(), backgroundColor);
+                    badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
 
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        System.err.println(e.getMessage());
-                        System.err.println(e.getStackTrace()[0].getLineNumber());
-                        System.err.println(e.getStackTrace()[0].getFileName());
+                    while (true) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            System.err.println(e.getMessage());
+                            System.err.println(e.getStackTrace()[0].getLineNumber());
+                            System.err.println(e.getStackTrace()[0].getFileName());
+                        }
+
+                        readData();
+                        partyPanel.refreshPanel(player.getParty());
+                        badgePanel.refreshPanel(player.getBadges());
                     }
-
-                    readData();
-                    partyPanel.refreshPanel(player.getParty());
-                    badgePanel.refreshPanel(player.getBadges());
                 }
-            }
-        }).start();
+            }).start();
+        }
     }
 
     public static void readConfig() {

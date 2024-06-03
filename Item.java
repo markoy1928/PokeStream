@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 public class Item {
     private int index;
     private String name;
@@ -16,7 +18,14 @@ public class Item {
 
     private void setName() {
         PokeDB db = new PokeDB();
-        db.select("Items", "name", "item_number = " + index);
+        Vector<String> items = db.select("Items", "name", "item_number = " + index);
+
+        if (!items.isEmpty()) {
+            name = items.get(0);
+        }
+        else {
+            name = null;
+        }
     }
 
     public String getName() {
@@ -24,11 +33,24 @@ public class Item {
     }
 
     public String getFilePath() {
-        String path = "Items/" + getName();
+        String path = null;
+        
+        if (exists()) {
+            path = "Items/" + getName().toLowerCase();
 
-        path.replaceAll(" ", "_");
-        path += ".png";
+            path = path.replace(" ", "_");
+            path += ".png";
+        }
 
         return path;
+    }
+
+    public boolean exists() {
+        if (index == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
