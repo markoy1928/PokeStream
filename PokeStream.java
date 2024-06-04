@@ -6,7 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class PokeDisplay {
+public class PokeStream {
     private static Trainer player;
     private static Color backgroundColor;
     private static Game game;
