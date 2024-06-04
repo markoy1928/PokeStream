@@ -113,9 +113,9 @@ public class PartyPanel extends JPanel {
                     ((ImageIcon) itemIcon).setImage(((ImageIcon) itemIcon).getImage().getScaledInstance(40, 40, Image.SCALE_FAST));
 
                     // Add images for pokemon items
-                    pokemonItem.setPreferredSize(new Dimension(50, 50));
+                    pokemonItem.setPreferredSize(new Dimension(40, 40));
                     JLabel pkItem = new JLabel(itemIcon);
-                    pkItem.setSize(new Dimension(50, 50));
+                    pkItem.setSize(new Dimension(40, 40));
                     pokemonItem.add(pkItem);
                 }
 
