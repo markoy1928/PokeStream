@@ -137,7 +137,7 @@ public class PartyPanel extends JPanel {
                 JLabel pkLevel = new JLabel("Level " + pokemon.getLevel(), SwingConstants.CENTER);
                 JLabel pkName = new JLabel(pokemon.getNickname(), SwingConstants.CENTER);
                 pkLevel.setFont(new Font("Arial", Font.PLAIN, 14));
-                pkLevel.setForeground(Color.WHITE);
+                pkLevel.setForeground(Color.WHITE); // TODO: Change to custom color
                 pkName.setFont(new Font("Arial", Font.BOLD, 20));
                 pkName.setForeground(Color.WHITE);
                 pokemonName.add(pkName, BorderLayout.NORTH);
