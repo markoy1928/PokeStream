@@ -269,7 +269,7 @@ function ReadParty(offset)
 				elseif DecryptedPKMData[i] == 0xC5 then
 					nick = nick .. ";"
 				elseif DecryptedPKMData[i] == 0xC6 then
-					nick = nick .. "♠️"
+					nick = nick .. "♠"
 				elseif DecryptedPKMData[i] == 0xC7 then
 					nick = nick .. "♣"
 				elseif DecryptedPKMData[i] == 0xC8 then
