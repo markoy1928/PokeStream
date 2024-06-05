@@ -269,53 +269,53 @@ function ReadParty(offset)
 				elseif DecryptedPKMData[i] == 0xC5 then
 					nick = nick .. ";"
 				elseif DecryptedPKMData[i] == 0xC6 then
-					nick = nick .. "♠"
+					nick = nick .. "\u2660" -- Spade
 				elseif DecryptedPKMData[i] == 0xC7 then
-					nick = nick .. "♣"
+					nick = nick .. "\u2663" -- Club
 				elseif DecryptedPKMData[i] == 0xC8 then
-					nick = nick .. "♥"
+					nick = nick .. "\u2665" -- Heart
 				elseif DecryptedPKMData[i] == 0xC9 then
-					nick = nick .. "♦"
+					nick = nick .. "\u29EB" -- Diamond
 				elseif DecryptedPKMData[i] == 0xCA then
-					nick = nick .. "★"
+					nick = nick .. "\u2605" -- Star
 				elseif DecryptedPKMData[i] == 0xCB then
-					nick = nick .. "ʘ"
+					nick = nick .. "\u2609" -- Dot Circle
 				elseif DecryptedPKMData[i] == 0xCC then
 					nick = nick .. "O"
 				elseif DecryptedPKMData[i] == 0xCD then
-					nick = nick .. "▯"
+					nick = nick .. "\u2B1C" -- Square
 				elseif DecryptedPKMData[i] == 0xCE then
-					nick = nick .. "△"
+					nick = nick .. "\u25B2" -- Triangle
 				elseif DecryptedPKMData[i] == 0xCF then
-					nick = nick .. "♢"
+					nick = nick .. "\u2662" -- White Diamond
 				elseif DecryptedPKMData[i] == 0xD0 then
 					nick = nick .. "@"
 				elseif DecryptedPKMData[i] == 0xD1 then
-					nick = nick .. "♪"
+					nick = nick .. "\u266A" -- Eigth Note
 				elseif DecryptedPKMData[i] == 0xD2 then
 					nick = nick .. "%"
 				elseif DecryptedPKMData[i] == 0xD3 then
-					nick = nick .. "☀︎"
+					nick = nick .. "\u2600" -- Sun
 				elseif DecryptedPKMData[i] == 0xD4 then
-					nick = nick .. "ඞ"
+					nick = nick .. "\u273F" -- ?
 				elseif DecryptedPKMData[i] == 0xD5 then
-					nick = nick .. "☃"
+					nick = nick .. "\u277D" -- 8?
 				elseif DecryptedPKMData[i] == 0xD6 then
-					nick = nick .. "☂"
+					nick = nick .. "\u2602" -- Umbrella
 				elseif DecryptedPKMData[i] == 0xD7 then
-					nick = nick .. "☺"
+					nick = nick .. "\u263A" -- Smile
 				elseif DecryptedPKMData[i] == 0xD8 then
-					nick = nick .. "☻"
+					nick = nick .. "\u263B" -- Laugh
 				elseif DecryptedPKMData[i] == 0xD9 then
-					nick = nick .. "☹"
+					nick = nick .. "\u2639" -- Frown
 				elseif DecryptedPKMData[i] == 0xDA then
-					nick = nick .. "☠"
+					nick = nick .. "\u2620" -- Angry
 				elseif DecryptedPKMData[i] == 0xDB then
-					nick = nick .. "⤴"
+					nick = nick .. "\u2934" -- Curved Up
 				elseif DecryptedPKMData[i] == 0xDC then
-					nick = nick .. "⤵"
+					nick = nick .. "\u2935" -- Curved Down
 				elseif DecryptedPKMData[i] == 0xDD then
-					nick = nick .. "ᶻz"
+					nick = nick .. "Zz" -- Tired
 				elseif DecryptedPKMData[i] == 0xDE then
 					nick = nick .. " "
 				else

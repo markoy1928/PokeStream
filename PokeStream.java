@@ -77,7 +77,7 @@ public class PokeStream {
             int money = ((Long)jsonObject.get("money")).intValue();
             int seen = ((Long)jsonObject.get("seen")).intValue();
             int own = ((Long)jsonObject.get("own")).intValue();
-            game = Game.getGame((String)jsonObject.get("game"));
+            game = Game.getGame(jsonObject.get("game").toString());
 
             // Read the badge data
             boolean[] badges = readBadges(jsonObject);
@@ -132,7 +132,7 @@ public class PokeStream {
     private static Pokemon readPokemon(JSONObject pkObject) {
         int pid = ((Long)pkObject.get("pid")).intValue();
         int dex = ((Long)pkObject.get("dex")).intValue();
-        String nickname = (String)pkObject.get("nickname");
+        String nickname = pkObject.get("nickname").toString();
         int gender = ((Long)pkObject.get("gender")).intValue();
         int form = ((Long)pkObject.get("form")).intValue();
         int hp = ((Long)pkObject.get("hp")).intValue();
