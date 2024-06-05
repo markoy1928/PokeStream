@@ -72,7 +72,7 @@ public class PartyPanel extends JPanel {
     }
 
     private class PokePanel extends JLayeredPane {
-        private static final int DIM_WIDTH = 150;
+        private static final int DIM_WIDTH = 150; // TODO: Adjust sizes for smaller monitors
         private static final int DIM_HEIGHT = 350;
         private Pokemon pokemon;
         private JPanel pokemonGif;
