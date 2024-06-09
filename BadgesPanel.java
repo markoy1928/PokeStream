@@ -26,7 +26,7 @@ public class BadgesPanel extends JPanel {
         BadgesPanel.game = game;
         DIM_HEIGHT = getFrameHeight();
         badgePanels = new BadgePanel[getBadgesLength()];
-        frame = new JFrame("PokeStream Badges");
+        frame = new JFrame("Badges");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         this.backgroundColor = bgColor;

@@ -26,7 +26,7 @@ public class PartyPanel extends JPanel {
     private Color backgroundColor;
 
     public void createPartyGUI(Pokemon[] party, Color bgColor) {
-        frame = new JFrame("PokeStream Party");
+        frame = new JFrame("Party");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         pokePanels = new PokePanel[6];
