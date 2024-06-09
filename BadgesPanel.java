@@ -43,6 +43,7 @@ public class BadgesPanel extends JPanel {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
     private static int getFrameHeight() {
