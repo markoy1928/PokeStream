@@ -11,7 +11,8 @@ public enum Game {
     ORAS,
     SM,
     USUM,
-    SWSH,
+    SW,
+    SH,
     BDSP,
     SV;
 
@@ -53,8 +54,11 @@ public enum Game {
             case "USUM":
                 return USUM;
 
-            case "SWSH":
-                return SWSH;
+            case "SW":
+                return SW;
+
+            case "SH":
+                return SH;
 
             case "BDSP":
                 return BDSP;
@@ -105,8 +109,11 @@ public enum Game {
             case USUM:
                 return "Alola";
 
-            case SWSH:
-                return "Galar";
+            case SW:
+                return "Galar-SW";
+
+            case SH:
+                return "Galar-SH";
 
             case BDSP:
                 return "Sinnoh";

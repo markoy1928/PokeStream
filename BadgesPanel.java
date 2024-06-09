@@ -50,9 +50,6 @@ public class BadgesPanel extends JPanel {
         if (game == Game.GSC || game == Game.HGSS) {
             return 850;
         }
-        else if (game == Game.SWSH) {
-            return 525;
-        }
         else {
             return 425;
         }
@@ -61,9 +58,6 @@ public class BadgesPanel extends JPanel {
     private int getBadgesLength() {
         if (game == Game.GSC || game == Game.HGSS) {
             return 16;
-        }
-        else if (game == Game.SWSH) {
-            return 10;
         }
         else {
             return 8;

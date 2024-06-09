@@ -68,17 +68,25 @@ insert into gyms values ('Kalos', 6, 'Fairy');
 insert into gyms values ('Kalos', 7, 'Psychic');
 insert into gyms values ('Kalos', 8, 'Iceberg');
 
--- Galar
-insert into gyms values ('Galar', 1, 'Grass');
-insert into gyms values ('Galar', 2, 'Water');
-insert into gyms values ('Galar', 3, 'Fire');
-insert into gyms values ('Galar', 4, 'Fighting');
-insert into gyms values ('Galar', 5, 'Ghost');
-insert into gyms values ('Galar', 6, 'Fairy-2');
-insert into gyms values ('Galar', 7, 'Rock');
-insert into gyms values ('Galar', 8, 'Ice');
-insert into gyms values ('Galar', 9, 'Dark');
-insert into gyms values ('Galar', 10, 'Dragon');
+-- Galar Sword
+insert into gyms values ('Galar-SW', 1, 'Grass');
+insert into gyms values ('Galar-SW', 2, 'Water');
+insert into gyms values ('Galar-SW', 3, 'Fire');
+insert into gyms values ('Galar-SW', 4, 'Fighting');
+insert into gyms values ('Galar-SW', 5, 'Fairy-2');
+insert into gyms values ('Galar-SW', 6, 'Rock');
+insert into gyms values ('Galar-SW', 7, 'Dark');
+insert into gyms values ('Galar-SW', 8, 'Dragon');
+
+-- Galar Shield
+insert into gyms values ('Galar-SH', 1, 'Grass');
+insert into gyms values ('Galar-SH', 2, 'Water');
+insert into gyms values ('Galar-SH', 3, 'Fire');
+insert into gyms values ('Galar-SH', 4, 'Ghost');
+insert into gyms values ('Galar-SH', 5, 'Fairy-2');
+insert into gyms values ('Galar-SH', 6, 'Ice');
+insert into gyms values ('Galar-SH', 7, 'Dark');
+insert into gyms values ('Galar-SH', 8, 'Dragon');
 
 -- Paldea
 insert into gyms values ('Paldea', 1, 'Cortondo');
