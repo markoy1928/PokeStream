@@ -32,6 +32,10 @@ public class Item {
         return name;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
     public String getFilePath() {
         String path = null;
         
@@ -52,5 +56,23 @@ public class Item {
         else {
             return true;
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // Make sure neither is null
+        if (this == null || other == null) {
+            return false;
+        }
+
+        // Make sure other is a pokemon
+        if (!(other instanceof Item)) {
+            return false;
+        }
+
+        // Call it a pokemon
+        Item otherIt = (Item)other;
+
+        return this.index == otherIt.getIndex();
     }
 }

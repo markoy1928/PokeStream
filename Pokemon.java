@@ -514,7 +514,7 @@ public class Pokemon {
         boolean hpEQ = this.hp == otherPK.getHP() && this.maxHP == otherPK.getMaxHP();
         boolean statusEQ = this.status == otherPK.getStatus();
         boolean eggEQ = this.egg == otherPK.isEgg();
-        boolean itemEQ = this.item == otherPK.getItem();
+        boolean itemEQ = this.item.equals(otherPK.getItem());
         boolean movesEQ = this.moves[0].equals(otherPK.getMoves()[0]) && this.moves[1].equals(otherPK.getMoves()[1]) && this.moves[2].equals(otherPK.getMoves()[2]) && this.moves[3].equals(otherPK.getMoves()[3]);
 
         return pidEQ && dexEQ && speciesEQ && nicknameEQ && genderEQ && levelEQ && hpEQ && statusEQ && eggEQ && movesEQ && itemEQ;
