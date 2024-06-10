@@ -32,3 +32,19 @@ function Pokemon:new (o)
     self.__index = self
     return o
 end
+
+Trainer = {
+    trainerName,
+    money,
+    seen,
+    own,
+    badges = {},
+    party = {}
+}
+
+function Trainer:new (o)
+    o = o or {}
+    setmetatable(o, self)
+    self.__index = self
+    return o
+end
