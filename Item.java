@@ -65,12 +65,12 @@ public class Item {
             return false;
         }
 
-        // Make sure other is a pokemon
+        // Make sure other is an Item
         if (!(other instanceof Item)) {
             return false;
         }
 
-        // Call it a pokemon
+        // Call it an Item
         Item otherIt = (Item)other;
 
         return this.index == otherIt.getIndex();
