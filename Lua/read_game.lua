@@ -379,197 +379,226 @@ function readNickname(nick, i)
         return nick
     elseif c < 0x2B then
         -- Number
-		readNickname(nick .. string.char(c + 0x0F), i + 2)
+		return readNickname(nick .. string.char(c + 0x0F), i + 2)
     elseif c < 0x45 then
         -- Uppercase
-        readNickname(nick .. string.char(c + 0x16), i + 2)
+        return readNickname(nick .. string.char(c + 0x16), i + 2)
 	elseif c < 0x7A then
         -- Lowercase
-        readNickname(nick .. string.char(c + 0x1C), i + 2)
+        return readNickname(nick .. string.char(c + 0x1C), i + 2)
     elseif c == 0xAB then
-        readNickname(nick .. "!", i + 2)
+        return readNickname(nick .. "!", i + 2)
     elseif c == 0xAC then
-        readNickname(nick .. "?", i + 2)
+        return readNickname(nick .. "?", i + 2)
     elseif c == 0xAD then
-        readNickname(nick .. ",", i + 2)
+        return readNickname(nick .. ",", i + 2)
     elseif c == 0xAE then
-        readNickname(nick .. ".", i + 2)
+        return readNickname(nick .. ".", i + 2)
     elseif c == 0xAF then
-        readNickname(nick .. "\u2026", i + 2) -- Elipses
+        return readNickname(nick .. "\u2026", i + 2) -- Elipses
     elseif c == 0xB0 then
-        readNickname(nick .. "\u00B7", i + 2) -- Center Dot
+        return readNickname(nick .. "\u00B7", i + 2) -- Center Dot
     elseif c == 0xB1 then
-        readNickname(nick .. "/", i + 2)
+        return readNickname(nick .. "/", i + 2)
     elseif c == 0xB2 then
-        readNickname(nick .. "\u2018", i + 2) -- Left Single Quote
+        return readNickname(nick .. "\u2018", i + 2) -- Left Single Quote
     elseif c == 0xB3 then
-        readNickname(nick .. "\u2019", i + 2) -- Right Single Quote
+        return readNickname(nick .. "\u2019", i + 2) -- Right Single Quote
     elseif c == 0xB4 then
-        readNickname(nick .. "\u201C", i + 2) -- Left Double Quote
+        return readNickname(nick .. "\u201C", i + 2) -- Left Double Quote
     elseif c == 0xB5 then
-        readNickname(nick .. "\u201D", i + 2) -- Right Double Quote
+        return readNickname(nick .. "\u201D", i + 2) -- Right Double Quote
     elseif c == 0xB9 then
-        readNickname(nick .. "(", i + 2)
+        return readNickname(nick .. "(", i + 2)
     elseif c == 0xBA then
-        readNickname(nick .. ")", i + 2)
+        return readNickname(nick .. ")", i + 2)
     elseif c == 0xBB then
-        readNickname(nick .. "\u2642", i + 2)
+        return readNickname(nick .. "\u2642", i + 2)
     elseif c == 0xBC then
-        readNickname(nick .. "\u2640", i + 2)
+        return readNickname(nick .. "\u2640", i + 2)
     elseif c == 0xBD then
-        readNickname(nick .. "+", i + 2)
+        return readNickname(nick .. "+", i + 2)
     elseif c == 0xBE then
-        readNickname(nick .. "-", i + 2)
+        return readNickname(nick .. "-", i + 2)
     elseif c == 0xBF then
-        readNickname(nick .. "*", i + 2)
+        return readNickname(nick .. "*", i + 2)
     elseif c == 0xC0 then
-        readNickname(nick .. "#", i + 2)
+        return readNickname(nick .. "#", i + 2)
     elseif c == 0xC1 then
-        readNickname(nick .. "=", i + 2)
+        return readNickname(nick .. "=", i + 2)
     elseif c == 0xC3 then
-        readNickname(nick .. "~", i + 2)
+        return readNickname(nick .. "~", i + 2)
     elseif c == 0xC4 then
-        readNickname(nick .. ":", i + 2)
+        return readNickname(nick .. ":", i + 2)
     elseif c == 0xC5 then
-        readNickname(nick .. ";", i + 2)
+        return readNickname(nick .. ";", i + 2)
     elseif c == 0xC6 then
-        readNickname(nick .. "\u2660", i + 2) -- Spade
+        return readNickname(nick .. "\u2660", i + 2) -- Spade
     elseif c == 0xC7 then
-        readNickname(nick .. "\u2663", i + 2) -- Club
+        return readNickname(nick .. "\u2663", i + 2) -- Club
     elseif c == 0xC8 then
-        readNickname(nick .. "\u2665", i + 2) -- Heart
+        return readNickname(nick .. "\u2665", i + 2) -- Heart
     elseif c == 0xC9 then
-        readNickname(nick .. "\u29EB", i + 2) -- Diamond
+        return readNickname(nick .. "\u29EB", i + 2) -- Diamond
     elseif c == 0xCA then
-        readNickname(nick .. "\u2605", i + 2) -- Star
+        return readNickname(nick .. "\u2605", i + 2) -- Star
     elseif c == 0xCB then
-        readNickname(nick .. "\u2609", i + 2) -- Dot Circle
+        return readNickname(nick .. "\u2609", i + 2) -- Dot Circle
     elseif c == 0xCC then
-        readNickname(nick .. "O", i + 2)
+        return readNickname(nick .. "O", i + 2)
     elseif c == 0xCD then
-        readNickname(nick .. "\u2B1C", i + 2) -- Square
+        return readNickname(nick .. "\u2B1C", i + 2) -- Square
     elseif c == 0xCE then
-        readNickname(nick .. "\u25B2", i + 2) -- Triangle
+        return readNickname(nick .. "\u25B2", i + 2) -- Triangle
     elseif c == 0xCF then
-        readNickname(nick .. "\u2662", i + 2) -- White Diamond
+        return readNickname(nick .. "\u2662", i + 2) -- White Diamond
     elseif c == 0xD0 then
-        readNickname(nick .. "@", i + 2)
+        return readNickname(nick .. "@", i + 2)
     elseif c == 0xD1 then
-        readNickname(nick .. "\u266A", i + 2) -- Eighth Note
+        return readNickname(nick .. "\u266A", i + 2) -- Eighth Note
     elseif c == 0xD2 then
-        readNickname(nick .. "%", i + 2)
+        return readNickname(nick .. "%", i + 2)
     elseif c == 0xD3 then
-        readNickname(nick .. "\u2600", i + 2) -- Sun
+        return readNickname(nick .. "\u2600", i + 2) -- Sun
     elseif c == 0xD4 then
-        readNickname(nick .. "\u273F", i + 2) -- ?
+        return readNickname(nick .. "\u273F", i + 2) -- ?
     elseif c == 0xD5 then
-        readNickname(nick .. "\u277D", i + 2) -- 8?
+        return readNickname(nick .. "\u277D", i + 2) -- 8?
     elseif c == 0xD6 then
-        readNickname(nick .. "\u2602", i + 2) -- Umbrella
+        return readNickname(nick .. "\u2602", i + 2) -- Umbrella
     elseif c == 0xD7 then
-        readNickname(nick .. "\u263A", i + 2) -- Smile
+        return readNickname(nick .. "\u263A", i + 2) -- Smile
     elseif c == 0xD8 then
-        readNickname(nick .. "\u263B", i + 2) -- Laugh
+        return readNickname(nick .. "\u263B", i + 2) -- Laugh
     elseif c == 0xD9 then
-        readNickname(nick .. "\u2639", i + 2) -- Frown
+        return readNickname(nick .. "\u2639", i + 2) -- Frown
     elseif c == 0xDA then
-        readNickname(nick .. "\u2620", i + 2) -- Angry
+        return readNickname(nick .. "\u2620", i + 2) -- Angry
     elseif c == 0xDB then
-        readNickname(nick .. "\u2934", i + 2) -- Curved Up
+        return readNickname(nick .. "\u2934", i + 2) -- Curved Up
     elseif c == 0xDC then
-        readNickname(nick .. "\u2935", i + 2) -- Curved Down
+        return readNickname(nick .. "\u2935", i + 2) -- Curved Down
     elseif c == 0xDD then
-        readNickname(nick .. "Zz", i + 2)
+        return readNickname(nick .. "Zz", i + 2)
     elseif c == 0xDE then
-        readNickname(nick .. " ", i + 2)
+        return readNickname(nick .. " ", i + 2)
     end
 end
 
 function readParty(offset)
     local party = {}
 
-	for CurrentPokemon = 1, 6, 1 do
+    for i = 1, 6, 1 do
+        party[i] = nil
+    end    
+
+	for currentPokemon = 1, 6, 1 do
 		for i = 1, 236, 1 do
-			EncryptedPKMData[i] = memory.readbyte(offset)
-			offset = offset + 1
-		end
-		
+            EncryptedPKMData[i] = memory.readbyte(offset)
+            offset = offset + 1
+        end
+        
         for i = 0x00, 0x08, 0x01 do
             DecryptedPKMData[i] = EncryptedPKMData[i]
         end
-
-		Seed = EncryptedPKMData[7] + bit.lshift(EncryptedPKMData[8], 8)
-
-		for i = 9, 136, 2 do
-			EncryptedData = EncryptedPKMData[i] + bit.lshift(EncryptedPKMData[i + 1], 8)
+    
+        Seed = EncryptedPKMData[7] + bit.lshift(EncryptedPKMData[8], 8)
+    
+        for i = 9, 136, 2 do
+            EncryptedData = EncryptedPKMData[i] + bit.lshift(EncryptedPKMData[i + 1], 8)
             Seed = rand(Seed)
-			DecryptedData = bit.bxor(EncryptedData, bit.rshift(Seed, 0x10))
-			EncryptedPKMData[i] = DecryptedData - bit.lshift(bit.rshift(DecryptedData, 8), 8)
-			EncryptedPKMData[i + 1] = bit.rshift(DecryptedData, 8)
-		end
-
-		PID = EncryptedPKMData[0x01] + bit.lshift(EncryptedPKMData[0x02], 8) + bit.lshift(EncryptedPKMData[0x03], 16) + bit.lshift(EncryptedPKMData[0x04], 24)
-		BlockOrder = bit.band(bit.rshift(PID, 0x0D), 0x1F) % 24
-
-		EncryptedOffset = 0x09
-		determineBlockOrder()
-
-		Seed = PID
-		for i = 137, 236, 2 do
-			EncryptedData = EncryptedPKMData[i] + bit.lshift(EncryptedPKMData[i + 1], 8)
+            DecryptedData = bit.bxor(EncryptedData, bit.rshift(Seed, 0x10))
+            EncryptedPKMData[i] = DecryptedData - bit.lshift(bit.rshift(DecryptedData, 8), 8)
+            EncryptedPKMData[i + 1] = bit.rshift(DecryptedData, 8)
+        end
+    
+        PID = EncryptedPKMData[0x01] + bit.lshift(EncryptedPKMData[0x02], 8) + bit.lshift(EncryptedPKMData[0x03], 16) + bit.lshift(EncryptedPKMData[0x04], 24)
+        BlockOrder = bit.band(bit.rshift(PID, 0x0D), 0x1F) % 24
+    
+        EncryptedOffset = 0x09
+        determineBlockOrder()
+    
+        Seed = PID
+        for i = 137, 236, 2 do
+            EncryptedData = EncryptedPKMData[i] + bit.lshift(EncryptedPKMData[i + 1], 8)
             Seed = rand(Seed)
-			DecryptedData = bit.bxor(EncryptedData, bit.rshift(Seed, 0x10))
-			DecryptedPKMData[i] = DecryptedData - bit.lshift(bit.rshift(DecryptedData, 8), 8)
-			DecryptedPKMData[i + 1] = bit.rshift(DecryptedData, 8)
-		end
+            DecryptedData = bit.bxor(EncryptedData, bit.rshift(Seed, 0x10))
+            DecryptedPKMData[i] = DecryptedData - bit.lshift(bit.rshift(DecryptedData, 8), 8)
+            DecryptedPKMData[i + 1] = bit.rshift(DecryptedData, 8)
+        end
+    
+        Checksum = 0
+        for i = 9, 136, 2 do
+            Checksum = Checksum + DecryptedPKMData[i] + bit.lshift(DecryptedPKMData[i + 1], 8)
+            Checksum = bit.band(Checksum, 0xFFFF)
+        end
+    
+                
+        if Checksum == DecryptedPKMData[0x07] + bit.lshift(DecryptedPKMData[0x08], 8) then
+            -- Create a new pokemon
+            party[currentPokemon] = Pokemon:new(nil)
+    
+            -- Get the moves
+            for i = 1, 4, 1 do
+                -- Create a new move
+                party[currentPokemon].moves = setmetatable({}, {__index = party[currentPokemon].moves})
+                party[currentPokemon].moves[i] = Move:new(nil)
+    
+                local offset1 = 0x29 + string.format("%x", ((i - 1) * 2))
+                local offset2 = 0x2A + string.format("%x", ((i - 1) * 2))
+                local offset3 = 0x31 + string.format("%x", (i - 1))
+                local offset4 = 0x35 + string.format("%x", (i - 1))
+    
+                -- Get move data
+                party[currentPokemon].moves[i].move = DecryptedPKMData[offset1] + bit.lshift(DecryptedPKMData[offset2], 8)
+    
+                if DecryptedPKMData[offset3] ~= nil then
+                    party[currentPokemon].moves[i].pp = DecryptedPKMData[offset3]
+                else
+                    party[currentPokemon].moves[i].pp = 0
+                end
 
-		Checksum = 0
-		for i = 9, 136, 2 do
-			Checksum = Checksum + DecryptedPKMData[i] + bit.lshift(DecryptedPKMData[i + 1], 8)
-			Checksum = bit.band(Checksum, 0xFFFF)
-		end
-
-				
-		if Checksum == DecryptedPKMData[0x07] + bit.lshift(DecryptedPKMData[0x08], 8) then
-			-- Create a new pokemon
-			party[CurrentPokemon] = Pokemon:new(nil)
-
-			-- Get the moves
-			for i = 1, 4, 1 do
-				-- Create a new move
-				party[CurrentPokemon].moves = setmetatable({}, {__index = party[CurrentPokemon].moves})
-				party[CurrentPokemon].moves[i] = Move:new(nil)
-
-				local offset1 = 0x29 + string.format("%x", ((i - 1) * 2))
-				local offset2 = 0x2A + string.format("%x", ((i - 1) * 2))
-				local offset3 = 0x31 + string.format("%x", (i - 1))
-				local offset4 = 0x35 + string.format("%x", (i - 1))
-
-				-- Get move data
-				party[CurrentPokemon].moves[i].move = DecryptedPKMData[offset1] + bit.lshift(DecryptedPKMData[offset2], 8)
-				party[CurrentPokemon].moves[i].pp = DecryptedPKMData[offset3]
-
-				if PPVal[party[CurrentPokemon].moves[i].move] ~= nil then
-					party[CurrentPokemon].moves[i].maxpp = PPVal[party[CurrentPokemon].moves[i].move] * (1.0 + (DecryptedPKMData[offset4] * 0.2))
-				end
-			end
-
-			-- Get the pokemon data
-			party[CurrentPokemon].pid = DecryptedPKMData[0x01] + bit.lshift(DecryptedPKMData[0x02], 8) + bit.lshift(DecryptedPKMData[0x03], 16) + bit.lshift(DecryptedPKMData[0x04], 24)
-			party[CurrentPokemon].dex = DecryptedPKMData[0x09] + bit.lshift(DecryptedPKMData[0x0A], 8)
-			party[CurrentPokemon].egg = bit.rshift(bit.band(DecryptedPKMData[0x3C], 0x40), 0x06)
-			party[CurrentPokemon].gender = bit.rshift(bit.band(DecryptedPKMData[0x41], 0x06), 0x01)
-			party[CurrentPokemon].status = DecryptedPKMData[0x89]
-			party[CurrentPokemon].hp = DecryptedPKMData[0x8F] + bit.lshift(DecryptedPKMData[0x90], 8)
-			party[CurrentPokemon].maxhp = DecryptedPKMData[0x91] + bit.lshift(DecryptedPKMData[0x92], 8)
-			party[CurrentPokemon].lvl = DecryptedPKMData[0x8D]
-			party[CurrentPokemon].item = DecryptedPKMData[0x0B] + bit.lshift(DecryptedPKMData[0x0C], 8)
-			party[CurrentPokemon].nickname = readNickname("", 0x49)
-			party[CurrentPokemon].form = DecryptedPKMData[0x41]
-		end
+                if PPVal[party[currentPokemon].moves[i].move] ~= nil then
+                    party[currentPokemon].moves[i].maxpp = PPVal[party[currentPokemon].moves[i].move] * (1.0 + (DecryptedPKMData[offset4] * 0.2))
+                else
+                    party[currentPokemon].moves[i].maxpp = 0
+                end
+            end
+    
+            -- Get the pokemon data
+            party[currentPokemon].pid = DecryptedPKMData[0x01] + bit.lshift(DecryptedPKMData[0x02], 8) + bit.lshift(DecryptedPKMData[0x03], 16) + bit.lshift(DecryptedPKMData[0x04], 24)
+            party[currentPokemon].dex = DecryptedPKMData[0x09] + bit.lshift(DecryptedPKMData[0x0A], 8)
+            party[currentPokemon].egg = bit.rshift(bit.band(DecryptedPKMData[0x3C], 0x40), 0x06)
+            party[currentPokemon].gender = bit.rshift(bit.band(DecryptedPKMData[0x41], 0x06), 0x01)
+            party[currentPokemon].status = DecryptedPKMData[0x89]
+            party[currentPokemon].hp = DecryptedPKMData[0x8F] + bit.lshift(DecryptedPKMData[0x90], 8)
+            party[currentPokemon].maxhp = DecryptedPKMData[0x91] + bit.lshift(DecryptedPKMData[0x92], 8)
+            party[currentPokemon].lvl = DecryptedPKMData[0x8D]
+            party[currentPokemon].item = DecryptedPKMData[0x0B] + bit.lshift(DecryptedPKMData[0x0C], 8)
+            party[currentPokemon].nickname = readNickname("", 0x49)
+            party[currentPokemon].form = DecryptedPKMData[0x41]
+        end		
 	end
 
     return party
+end
+
+function getMoney(game)
+    local money = 0
+
+    if game == "DP" then
+        money = memory.readdword(memory.readdword(memory.readdword(0x021C4D28) + 0x04) + 0x2E4)
+    elseif game == "PT" then
+        money = memory.readdword(memory.readdword(0x02101D40) + 0x90)
+    elseif game == "HGSS" then
+        money = memory.readdword(memory.readdword(0x02111880) + 0x88)
+    elseif game == "BW" then
+        money = memory.readdword(memory.readdword(0x02000024) + 0x21ABC)
+    elseif game == "B2W2" then
+        money = memory.readdword(memory.readdword(0x02000024) + 0x21A20)
+    end
+
+    return money
 end
 
 readData = function (game)
@@ -602,6 +631,8 @@ readData = function (game)
     end
 
     player.badges = readBadges(badgeData1, badgeData2)
+
+    player.money = getMoney(game)
 
     return player
 end

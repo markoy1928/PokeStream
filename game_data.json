@@ -1,15 +1,14 @@
 {
     "game": "HGSS",
-    "mapID": 185,
     "badges": [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
         false,
         false,
         false,
@@ -199,37 +198,37 @@
             ]
         },
         {
-            "pid": -786113581,
-            "dex": 214,
-            "gender": 0,
-            "hp": 128,
-            "maxHP": 128,
-            "level": 41,
+            "pid": 0,
+            "dex": 493,
+            "gender": 2,
+            "hp": 13,
+            "maxHP": 13,
+            "level": 1,
             "status": 0,
-            "item": 266,
-            "nickname": "Larry\u273F",
-            "form": 0,
+            "item": 250,
+            "nickname": "ARCEUS",
+            "form": 4,
             "egg": false,
             "moves": [
                 {
-                    "move": 370,
-                    "pp": 5,
-                    "maxPP": 5
+                    "move": 1,
+                    "pp": 35,
+                    "maxPP": 35
                 },
                 {
-                    "move": 332,
-                    "pp": 20,
-                    "maxPP": 20
+                    "move": 0,
+                    "pp": 0,
+                    "maxPP": 0
                 },
                 {
-                    "move": 30,
-                    "pp": 25,
-                    "maxPP": 25
+                    "move": 0,
+                    "pp": 0,
+                    "maxPP": 0
                 },
                 {
-                    "move": 280,
-                    "pp": 15,
-                    "maxPP": 15
+                    "move": 0,
+                    "pp": 0,
+                    "maxPP": 0
                 }
             ]
         }
