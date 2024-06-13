@@ -23,11 +23,13 @@ public class PokeStream {
 
             PartyPanel partyPanel = new PartyPanel();
             BadgesPanel badgePanel = new BadgesPanel();
+            TrainerPanel trainerPanel = new TrainerPanel();
 
             new Thread(new Runnable() {
                 public void run() {
                     partyPanel.createPartyGUI(player.getParty(), backgroundColor);
                     badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
+                    trainerPanel.createTrainerGUI(player.getMoney(), player.getSeen(), player.getOwn(), backgroundColor);
 
                     while (true) {
                         try {
@@ -41,6 +43,7 @@ public class PokeStream {
                         readData();
                         partyPanel.refreshPanel(player.getParty());
                         badgePanel.refreshPanel(player.getBadges());
+                        trainerPanel.refreshPanel(player.getMoney(), player.getSeen(), player.getOwn());
                     }
                 }
             }).start();
