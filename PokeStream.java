@@ -9,6 +9,8 @@ import org.json.simple.parser.JSONParser;
 public class PokeStream {
     private static Trainer player;
     private static Color backgroundColor;
+    private static Color fontColor;
+    private static String fontFamily;
     private static Game game;
     private final static boolean resetDB = false;
 
@@ -27,9 +29,9 @@ public class PokeStream {
 
             new Thread(new Runnable() {
                 public void run() {
-                    partyPanel.createPartyGUI(player.getParty(), backgroundColor);
+                    partyPanel.createPartyGUI(player.getParty(), backgroundColor, fontFamily, fontColor);
                     badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
-                    trainerPanel.createTrainerGUI(player.getMoney(), player.getSeen(), player.getOwn(), backgroundColor);
+                    trainerPanel.createTrainerGUI(player.getMoney(), player.getSeen(), player.getOwn(), backgroundColor, fontFamily, fontColor);
 
                     while (true) {
                         try {
@@ -56,7 +58,9 @@ public class PokeStream {
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject)parser.parse(configReader);
 
-            backgroundColor = Color.decode((String)jsonObject.get("Background Color"));
+            backgroundColor = Color.decode(jsonObject.get("Background Color").toString());
+            fontColor = Color.decode(jsonObject.get("Font Color").toString());
+            fontFamily = jsonObject.get("Font").toString();
         }
         catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());

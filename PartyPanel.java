@@ -24,13 +24,17 @@ public class PartyPanel extends JPanel {
     private JFrame frame;
     private PokePanel[] pokePanels;
     private Color backgroundColor;
+    private Color fontColor;
+    private String fontFamily;
 
-    public void createPartyGUI(Pokemon[] party, Color bgColor) {
+    public void createPartyGUI(Pokemon[] party, Color bgColor, String fontFamily, Color fontColor) {
         frame = new JFrame("Party");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         pokePanels = new PokePanel[6];
         this.backgroundColor = bgColor;
+        this.fontFamily = fontFamily;
+        this.fontColor = fontColor;
         
         // Add each party pokemon to the panel
         for (int i = 0; i < 6; ++i) {
@@ -137,10 +141,10 @@ public class PartyPanel extends JPanel {
                 pokemonName.setBackground(bgColor);
                 JLabel pkLevel = new JLabel("Level " + pokemon.getLevel(), SwingConstants.CENTER);
                 JLabel pkName = new JLabel(pokemon.getNickname(), SwingConstants.CENTER);
-                pkLevel.setFont(new Font("Arial Unicode MS", Font.PLAIN, 14));
-                pkLevel.setForeground(Color.WHITE); // TODO: Change to custom color
-                pkName.setFont(new Font("Arial Unicode MS", Font.BOLD, 20));
-                pkName.setForeground(Color.WHITE);
+                pkLevel.setFont(new Font(fontFamily, Font.PLAIN, 14));
+                pkLevel.setForeground(fontColor);
+                pkName.setFont(new Font(fontFamily, Font.BOLD, 20));
+                pkName.setForeground(fontColor);
                 pokemonName.add(pkName, BorderLayout.NORTH);
                 pokemonName.add(pkLevel, BorderLayout.SOUTH);
                 
@@ -293,8 +297,8 @@ public class PartyPanel extends JPanel {
 
                 // Create Health Label
                 JLabel hpLabel = new JLabel(String.format("%d / %d", pokemon.getHP(), pokemon.getMaxHP()));
-                hpLabel.setFont(new Font("Arial", Font.BOLD, 16));
-                hpLabel.setForeground(Color.WHITE);
+                hpLabel.setFont(new Font(fontFamily, Font.BOLD, 16));
+                hpLabel.setForeground(fontColor);
                 
                 pokemonHealth.add(outerBar, BorderLayout.NORTH);
                 pokemonHealth.add(hpLabel, BorderLayout.SOUTH);

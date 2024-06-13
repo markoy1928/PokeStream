@@ -23,7 +23,7 @@ public class TrainerPanel extends JPanel {
     private JLabel seenLabel;
     private JLabel ownLabel;
 
-    public void createTrainerGUI(int money, int seen, int own, Color bgColor) {
+    public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor) {
         frame = new JFrame("Trainer");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
@@ -32,8 +32,8 @@ public class TrainerPanel extends JPanel {
 
         // Money
         moneyLabel = new JLabel("Money: $" + money, SwingConstants.LEFT);
-        moneyLabel.setFont(new Font("Arial Unicode MS", Font.PLAIN, 30));
-        moneyLabel.setForeground(Color.WHITE);
+        moneyLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
+        moneyLabel.setForeground(fontColor);
         moneyPanel = new JPanel(new BorderLayout());
         moneyPanel.setBackground(bgColor);
         moneyPanel.add(moneyLabel, BorderLayout.WEST);
@@ -41,8 +41,8 @@ public class TrainerPanel extends JPanel {
 
         // Pokemon Seen
         seenLabel = new JLabel("Seen: " + seen, SwingConstants.LEFT);
-        seenLabel.setFont(new Font("Arial Unicode MS", Font.PLAIN, 30));
-        seenLabel.setForeground(Color.WHITE);
+        seenLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
+        seenLabel.setForeground(fontColor);
         seenPanel = new JPanel(new BorderLayout());
         seenPanel.setBackground(bgColor);
         seenPanel.add(seenLabel, BorderLayout.WEST);
@@ -50,8 +50,8 @@ public class TrainerPanel extends JPanel {
 
         // Pokemon Owned
         ownLabel = new JLabel("Caught: " + own, SwingConstants.LEFT);
-        ownLabel.setFont(new Font("Arial Unicode MS", Font.PLAIN, 30));
-        ownLabel.setForeground(Color.WHITE);
+        ownLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
+        ownLabel.setForeground(fontColor);
         ownPanel = new JPanel(new BorderLayout());
         ownPanel.setBackground(bgColor);
         ownPanel.add(ownLabel, BorderLayout.WEST);
