@@ -11,6 +11,9 @@ public class PokeStream {
     private static Color backgroundColor;
     private static Color fontColor;
     private static String fontFamily;
+    private static boolean partyEnabled;
+    private static boolean badgesEnabled;
+    private static boolean trainerEnabled;
     private static Game game;
     private final static boolean resetDB = false;
 
@@ -29,10 +32,15 @@ public class PokeStream {
 
             new Thread(new Runnable() {
                 public void run() {
-                    // TODO: use config to enable/disable these
-                    partyPanel.createPartyGUI(player.getParty(), backgroundColor, fontFamily, fontColor);
-                    badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
-                    trainerPanel.createTrainerGUI(player.getMoney(), player.getSeen(), player.getOwn(), backgroundColor, fontFamily, fontColor);
+                    if (partyEnabled) {
+                        partyPanel.createPartyGUI(player.getParty(), backgroundColor, fontFamily, fontColor);
+                    }
+                    if (badgesEnabled) {
+                        badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
+                    }
+                    if (trainerEnabled) {
+                        trainerPanel.createTrainerGUI(player.getMoney(), player.getSeen(), player.getOwn(), backgroundColor, fontFamily, fontColor);
+                    }
 
                     while (true) {
                         try {
@@ -44,9 +52,16 @@ public class PokeStream {
                         }
 
                         readData();
-                        partyPanel.refreshPanel(player.getParty());
-                        badgePanel.refreshPanel(player.getBadges());
-                        trainerPanel.refreshPanel(player.getMoney(), player.getSeen(), player.getOwn());
+
+                        if (partyEnabled) {
+                            partyPanel.refreshPanel(player.getParty());
+                        }
+                        if (badgesEnabled) {
+                            badgePanel.refreshPanel(player.getBadges());
+                        }
+                        if (trainerEnabled) {
+                            trainerPanel.refreshPanel(player.getMoney(), player.getSeen(), player.getOwn());
+                        }
                     }
                 }
             }).start();
@@ -62,6 +77,9 @@ public class PokeStream {
             backgroundColor = Color.decode(jsonObject.get("Background Color").toString());
             fontColor = Color.decode(jsonObject.get("Font Color").toString());
             fontFamily = jsonObject.get("Font").toString();
+            partyEnabled = (boolean)jsonObject.get("Party Enabled");
+            badgesEnabled = (boolean)jsonObject.get("Badges Enabled");
+            trainerEnabled = (boolean)jsonObject.get("Trainer Enabled");
         }
         catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());
