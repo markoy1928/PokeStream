@@ -1,5 +1,8 @@
 {
     "Background Color": "#404040",
     "Font Color": "#FFFFFF",
-    "Font": "Arial Unicode MS"
+    "Font": "Arial Unicode MS",
+    "Party Enabled": true,
+    "Badges Enabled": true,
+    "Trainer Enabled": true
 }

@@ -29,6 +29,7 @@ public class PokeStream {
 
             new Thread(new Runnable() {
                 public void run() {
+                    // TODO: use config to enable/disable these
                     partyPanel.createPartyGUI(player.getParty(), backgroundColor, fontFamily, fontColor);
                     badgePanel.createBadgeGUI(game, player.getBadges(), backgroundColor);
                     trainerPanel.createTrainerGUI(player.getMoney(), player.getSeen(), player.getOwn(), backgroundColor, fontFamily, fontColor);
