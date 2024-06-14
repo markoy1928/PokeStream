@@ -88,6 +88,7 @@ public class BadgesPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        // TODO: Put scaling here instead
         setBackground(backgroundColor);
         super.paintComponent(g);
     }
