@@ -56,6 +56,7 @@ public class Pokemon {
         // Individual Pokemon
         else {
             switch (dexNo) {
+                // TODO: Change form names to numbers
                 // Unown
                 case 201:
                     switch ((form - 4) / 8) {
