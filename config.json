@@ -4,5 +4,6 @@
     "Font": "Arial Unicode MS",
     "Party Enabled": true,
     "Badges Enabled": true,
-    "Trainer Enabled": true
+    "Trainer Enabled": true,
+    "Scale": 5
 }

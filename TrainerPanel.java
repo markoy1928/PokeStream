@@ -12,8 +12,8 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 
 public class TrainerPanel extends JPanel {
-    private static final int DIM_WIDTH = 250;
-    private static final int DIM_HEIGHT = 250;
+    private static int DIM_WIDTH;
+    private static int DIM_HEIGHT;
     private JFrame frame;
     private Color backgroundColor;
     private JPanel moneyPanel;
@@ -23,8 +23,10 @@ public class TrainerPanel extends JPanel {
     private JLabel seenLabel;
     private JLabel ownLabel;
 
-    public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor) {
+    public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor, int scale) {
         frame = new JFrame("Trainer");
+        DIM_WIDTH = 50 * scale;
+        DIM_HEIGHT = 50 * scale;
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         this.backgroundColor = bgColor;
@@ -32,30 +34,30 @@ public class TrainerPanel extends JPanel {
 
         // Money
         moneyLabel = new JLabel("Money: $" + money, SwingConstants.LEFT);
-        moneyLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
+        moneyLabel.setFont(new Font(fontFamily, Font.PLAIN, 6 * scale));
         moneyLabel.setForeground(fontColor);
         moneyPanel = new JPanel(new BorderLayout());
         moneyPanel.setBackground(bgColor);
         moneyPanel.add(moneyLabel, BorderLayout.WEST);
-        moneyPanel.setPreferredSize(new Dimension(DIM_WIDTH - 20, 50));
+        moneyPanel.setPreferredSize(new Dimension(DIM_WIDTH - (4 * scale), 10 * scale));
 
         // Pokemon Seen
         seenLabel = new JLabel("Seen: " + seen, SwingConstants.LEFT);
-        seenLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
+        seenLabel.setFont(new Font(fontFamily, Font.PLAIN, 6 * scale));
         seenLabel.setForeground(fontColor);
         seenPanel = new JPanel(new BorderLayout());
         seenPanel.setBackground(bgColor);
         seenPanel.add(seenLabel, BorderLayout.WEST);
-        seenPanel.setPreferredSize(new Dimension(DIM_WIDTH - 20, 50));
+        seenPanel.setPreferredSize(new Dimension(DIM_WIDTH - (4 * scale), 10 * scale));
 
         // Pokemon Owned
         ownLabel = new JLabel("Caught: " + own, SwingConstants.LEFT);
-        ownLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
+        ownLabel.setFont(new Font(fontFamily, Font.PLAIN, 6 * scale));
         ownLabel.setForeground(fontColor);
         ownPanel = new JPanel(new BorderLayout());
         ownPanel.setBackground(bgColor);
         ownPanel.add(ownLabel, BorderLayout.WEST);
-        ownPanel.setPreferredSize(new Dimension(DIM_WIDTH - 20, 50));
+        ownPanel.setPreferredSize(new Dimension(DIM_WIDTH - (4 * scale), 10 * scale));
 
         this.add(moneyPanel);
         this.add(seenPanel);

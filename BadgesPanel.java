@@ -13,23 +13,26 @@ import javax.swing.JPanel;
 import java.awt.Image;
 
 public class BadgesPanel extends JPanel {
-    private static final int DIM_WIDTH = 250;
+    private static int DIM_WIDTH;
     private static int DIM_HEIGHT;
     private JFrame frame;
     private Color backgroundColor;
+    private int scale;
     private static Game game;
     private BadgePanel[] badgePanels;
     private boolean[] badges;
 
-    public void createBadgeGUI(Game game, boolean[] badges, Color bgColor) {
+    public void createBadgeGUI(Game game, boolean[] badges, Color bgColor, int scale) {
         this.badges = badges;
         BadgesPanel.game = game;
-        DIM_HEIGHT = getFrameHeight();
+        DIM_WIDTH = 50 * scale;
+        DIM_HEIGHT = getFrameHeight() * scale;
         badgePanels = new BadgePanel[getBadgesLength()];
         frame = new JFrame("Badges");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         this.backgroundColor = bgColor;
+        this.scale = scale;
 
         // Add each badge to the panel
         for (int i = 0; i < getBadgesLength(); ++i) {
@@ -48,10 +51,10 @@ public class BadgesPanel extends JPanel {
 
     private static int getFrameHeight() {
         if (game == Game.GSC || game == Game.HGSS) {
-            return 850;
+            return 170;
         }
         else {
-            return 425;
+            return 85;
         }
     }
 
@@ -94,13 +97,13 @@ public class BadgesPanel extends JPanel {
 
         public BadgePanel(int gymNumber) {
             this.gymNumber = gymNumber;
-            this.setPreferredSize(new Dimension(100, 100));
+            this.setPreferredSize(new Dimension(20 * scale, 20 * scale));
 
             try {
                 File f = new File(getFilePath());
                 URL imgUrl = f.toURI().toURL();
                 Icon icon = new ImageIcon(imgUrl);
-                ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(80, 80, Image.SCALE_FAST));
+                ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(16 * scale, 16 * scale, Image.SCALE_FAST));
 
                 JLabel bLabel = new JLabel(icon);
                 this.add(bLabel);
