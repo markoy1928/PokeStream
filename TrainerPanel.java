@@ -25,8 +25,8 @@ public class TrainerPanel extends JPanel {
 
     public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor, int scale) {
         frame = new JFrame("Trainer");
-        DIM_WIDTH = 50 * scale;
-        DIM_HEIGHT = 50 * scale;
+        DIM_WIDTH = 250;
+        DIM_HEIGHT = 250;
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         this.backgroundColor = bgColor;
@@ -34,30 +34,30 @@ public class TrainerPanel extends JPanel {
 
         // Money
         moneyLabel = new JLabel("Money: $" + money, SwingConstants.LEFT);
-        moneyLabel.setFont(new Font(fontFamily, Font.PLAIN, 6 * scale));
+        moneyLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
         moneyLabel.setForeground(fontColor);
         moneyPanel = new JPanel(new BorderLayout());
         moneyPanel.setBackground(bgColor);
         moneyPanel.add(moneyLabel, BorderLayout.WEST);
-        moneyPanel.setPreferredSize(new Dimension(DIM_WIDTH - (4 * scale), 10 * scale));
+        moneyPanel.setPreferredSize(new Dimension(DIM_WIDTH - (20), 50));
 
         // Pokemon Seen
         seenLabel = new JLabel("Seen: " + seen, SwingConstants.LEFT);
-        seenLabel.setFont(new Font(fontFamily, Font.PLAIN, 6 * scale));
+        seenLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
         seenLabel.setForeground(fontColor);
         seenPanel = new JPanel(new BorderLayout());
         seenPanel.setBackground(bgColor);
         seenPanel.add(seenLabel, BorderLayout.WEST);
-        seenPanel.setPreferredSize(new Dimension(DIM_WIDTH - (4 * scale), 10 * scale));
+        seenPanel.setPreferredSize(new Dimension(DIM_WIDTH - (20), 50));
 
         // Pokemon Owned
         ownLabel = new JLabel("Caught: " + own, SwingConstants.LEFT);
-        ownLabel.setFont(new Font(fontFamily, Font.PLAIN, 6 * scale));
+        ownLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
         ownLabel.setForeground(fontColor);
         ownPanel = new JPanel(new BorderLayout());
         ownPanel.setBackground(bgColor);
         ownPanel.add(ownLabel, BorderLayout.WEST);
-        ownPanel.setPreferredSize(new Dimension(DIM_WIDTH - (4 * scale), 10 * scale));
+        ownPanel.setPreferredSize(new Dimension(DIM_WIDTH - (20), 50));
 
         this.add(moneyPanel);
         this.add(seenPanel);

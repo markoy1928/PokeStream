@@ -25,8 +25,8 @@ public class BadgesPanel extends JPanel {
     public void createBadgeGUI(Game game, boolean[] badges, Color bgColor, int scale) {
         this.badges = badges;
         BadgesPanel.game = game;
-        DIM_WIDTH = 50 * scale;
-        DIM_HEIGHT = getFrameHeight() * scale;
+        DIM_WIDTH = 250;
+        DIM_HEIGHT = getFrameHeight();
         badgePanels = new BadgePanel[getBadgesLength()];
         frame = new JFrame("Badges");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
@@ -51,10 +51,10 @@ public class BadgesPanel extends JPanel {
 
     private static int getFrameHeight() {
         if (game == Game.GSC || game == Game.HGSS) {
-            return 170;
+            return 850;
         }
         else {
-            return 85;
+            return 425;
         }
     }
 
@@ -97,13 +97,13 @@ public class BadgesPanel extends JPanel {
 
         public BadgePanel(int gymNumber) {
             this.gymNumber = gymNumber;
-            this.setPreferredSize(new Dimension(20 * scale, 20 * scale));
+            this.setPreferredSize(new Dimension(100, 100));
 
             try {
                 File f = new File(getFilePath());
                 URL imgUrl = f.toURI().toURL();
                 Icon icon = new ImageIcon(imgUrl);
-                ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(16 * scale, 16 * scale, Image.SCALE_FAST));
+                ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(80, 80, Image.SCALE_FAST));
 
                 JLabel bLabel = new JLabel(icon);
                 this.add(bLabel);

@@ -30,8 +30,8 @@ public class PartyPanel extends JPanel {
 
     public void createPartyGUI(Pokemon[] party, Color bgColor, String fontFamily, Color fontColor, int scale) {
         frame = new JFrame("Party");
-        DIM_WIDTH = 200 * scale;
-        DIM_HEIGHT = 65 * scale;
+        DIM_WIDTH = 1000;
+        DIM_HEIGHT = 325;
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         pokePanels = new PokePanel[6];
@@ -92,8 +92,8 @@ public class PartyPanel extends JPanel {
         private Color backgroundColor;
 
         public PokePanel(Pokemon pk, Color bgColor) {
-            DIM_WIDTH = 30 * scale;
-            DIM_HEIGHT = 70 * scale;
+            DIM_WIDTH = 150;
+            DIM_HEIGHT = 350;
             pokemon = pk;
             this.setLayout(new OverlayLayout(this));
             this.backgroundColor = bgColor;
@@ -105,8 +105,8 @@ public class PartyPanel extends JPanel {
                 Icon icon = new ImageIcon(imgUrl);
 
                 // Change the size of the gif
-                int x = ((icon.getIconWidth() * 3) / 10) * scale;
-                int y = ((icon.getIconHeight() * 3) / 10) * scale;
+                int x = (icon.getIconWidth() * 3) / 2;
+                int y = (icon.getIconHeight() * 3) / 2;
                 ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(x, y, Image.SCALE_FAST));
 
                 // Set item stuff
@@ -121,12 +121,12 @@ public class PartyPanel extends JPanel {
                     Icon itemIcon = new ImageIcon(imgUrl2);
 
                     // Change the size of the item
-                    ((ImageIcon) itemIcon).setImage(((ImageIcon) itemIcon).getImage().getScaledInstance(8 * scale, 8 * scale, Image.SCALE_FAST));
+                    ((ImageIcon) itemIcon).setImage(((ImageIcon) itemIcon).getImage().getScaledInstance(40, 40, Image.SCALE_FAST));
 
                     // Add images for pokemon items
-                    pokemonItem.setPreferredSize(new Dimension(8 * scale, 8 * scale));
+                    pokemonItem.setPreferredSize(new Dimension(40, 40));
                     JLabel pkItem = new JLabel(itemIcon);
-                    pkItem.setSize(new Dimension(8 * scale, 8 * scale));
+                    pkItem.setSize(new Dimension(40, 40));
                     pokemonItem.add(pkItem);
                 }
 
@@ -137,9 +137,9 @@ public class PartyPanel extends JPanel {
                 // Add gif for pokemon
                 pokemonGif = new JPanel(new BorderLayout());
                 pokemonGif.setBackground(bgColor);
-                pokemonGif.setPreferredSize(new Dimension(30 * scale, 30 * scale));
+                pokemonGif.setPreferredSize(new Dimension(150, 150));
                 JLabel pkGif = new JLabel(icon);
-                pkGif.setSize(new Dimension(30 * scale, 40 * scale));
+                pkGif.setSize(new Dimension(150, 200));
                 pokemonGif.add(pkGif, BorderLayout.SOUTH);
 
                 // Add name and level of pokemon
@@ -147,9 +147,9 @@ public class PartyPanel extends JPanel {
                 pokemonName.setBackground(bgColor);
                 JLabel pkLevel = new JLabel("Level " + pokemon.getLevel(), SwingConstants.CENTER);
                 JLabel pkName = new JLabel(pokemon.getNickname(), SwingConstants.CENTER);
-                pkLevel.setFont(new Font(fontFamily, Font.PLAIN, 3 * scale));
+                pkLevel.setFont(new Font(fontFamily, Font.PLAIN, 15));
                 pkLevel.setForeground(fontColor);
-                pkName.setFont(new Font(fontFamily, Font.BOLD, 4 * scale));
+                pkName.setFont(new Font(fontFamily, Font.BOLD, 20));
                 pkName.setForeground(fontColor);
                 pokemonName.add(pkName, BorderLayout.NORTH);
                 pokemonName.add(pkLevel, BorderLayout.SOUTH);
@@ -168,7 +168,7 @@ public class PartyPanel extends JPanel {
             JPanel middle = new JPanel(new BorderLayout());
             JPanel main = new JPanel(new BorderLayout());
             upper.setBackground(bgColor);
-            upper.setPreferredSize(new Dimension(30 * scale, 50 * scale));
+            upper.setPreferredSize(new Dimension(150, 250));
             middle.setBackground(bgColor);
             middle.add(pokemonName, BorderLayout.NORTH);
             middle.add(pokemonGif, BorderLayout.SOUTH);
@@ -248,7 +248,7 @@ public class PartyPanel extends JPanel {
                 }
 
             statusBar.setBackground(backgroundColor);
-            statusBar.setPreferredSize(new Dimension(30 * scale, 20 * scale));
+            statusBar.setPreferredSize(new Dimension(150, 100));
             JLabel statusLabel = new JLabel();
 
             if (icon != null) {
@@ -268,7 +268,7 @@ public class PartyPanel extends JPanel {
         private void createHealthBar() {
             pokemonHealth = new JPanel();
             pokemonHealth.setBackground(backgroundColor);
-            pokemonHealth.setPreferredSize(new Dimension(30 * scale, 30 * scale));
+            pokemonHealth.setPreferredSize(new Dimension(150, 150));
 
             if (pokemon.getMaxHP() > 0) {
                 FlowLayout fl = new FlowLayout(FlowLayout.LEFT);
@@ -277,7 +277,7 @@ public class PartyPanel extends JPanel {
 
                 // Calculate the percent of health bar remaining
                 float percentDamage = (float)pokemon.getHP() / (float)pokemon.getMaxHP();
-                int healthBarLength = Math.round(percentDamage * 28) * scale;
+                int healthBarLength = Math.round(percentDamage * 140);
 
                 // Determine Color - Source: https://gaming.stackexchange.com/questions/331464/how-is-the-color-of-the-hit-point-bar-calculated
                 Color barColor;
@@ -293,17 +293,17 @@ public class PartyPanel extends JPanel {
 
                 // Create the outer bar
                 JPanel outerBar = new JPanel(fl);
-                outerBar.setPreferredSize(new Dimension(29 * scale, 3 * scale));
+                outerBar.setPreferredSize(new Dimension(145, 15));
 
                 // Create the inner bar
                 JPanel innerBar = new JPanel();
                 innerBar.setBackground(barColor);
-                innerBar.setPreferredSize(new Dimension(healthBarLength, 2 * scale));
+                innerBar.setPreferredSize(new Dimension(healthBarLength, 10));
                 outerBar.add(innerBar);
 
                 // Create Health Label
                 JLabel hpLabel = new JLabel(String.format("%d / %d", pokemon.getHP(), pokemon.getMaxHP()));
-                hpLabel.setFont(new Font(fontFamily, Font.BOLD, 3 * scale));
+                hpLabel.setFont(new Font(fontFamily, Font.BOLD, 15));
                 hpLabel.setForeground(fontColor);
                 
                 pokemonHealth.add(outerBar, BorderLayout.NORTH);
