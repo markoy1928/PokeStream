@@ -14,7 +14,7 @@ public class PokeStream {
     private static boolean partyEnabled;
     private static boolean badgesEnabled;
     private static boolean trainerEnabled;
-    private static int scale;
+    private static float scale;
     private static Game game;
     private final static boolean resetDB = false;
 
@@ -81,7 +81,7 @@ public class PokeStream {
             partyEnabled = (boolean)jsonObject.get("Party Enabled");
             badgesEnabled = (boolean)jsonObject.get("Badges Enabled");
             trainerEnabled = (boolean)jsonObject.get("Trainer Enabled");
-            scale = ((Long)jsonObject.get("Scale")).intValue();
+            scale = (float)((double)jsonObject.get("Scale"));
         }
         catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());

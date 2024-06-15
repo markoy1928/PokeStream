@@ -1,5 +1,6 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.io.File;
 import java.net.URL;
 import java.awt.Color;
@@ -17,12 +18,12 @@ public class BadgesPanel extends JPanel {
     private static int DIM_HEIGHT;
     private JFrame frame;
     private Color backgroundColor;
-    private int scale;
+    private float scale;
     private static Game game;
     private BadgePanel[] badgePanels;
     private boolean[] badges;
 
-    public void createBadgeGUI(Game game, boolean[] badges, Color bgColor, int scale) {
+    public void createBadgeGUI(Game game, boolean[] badges, Color bgColor, float scale) {
         this.badges = badges;
         BadgesPanel.game = game;
         DIM_WIDTH = 250;
@@ -90,7 +91,12 @@ public class BadgesPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         // TODO: Put scaling here instead
         setBackground(backgroundColor);
-        super.paintComponent(g);
+
+        // Scale to correct size
+        Graphics2D g2 = (Graphics2D)g;
+        g2.scale(scale, scale);
+
+        super.paintComponent(g2);
     }
 
     private class BadgePanel extends JPanel {
@@ -139,7 +145,12 @@ public class BadgesPanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
             setBackground(backgroundColor);
-            super.paintComponent(g);
+
+            // Scale to correct size
+            Graphics2D g2 = (Graphics2D)g;
+            g2.scale(scale, scale);
+
+            super.paintComponent(g2);
         }
     }
 }

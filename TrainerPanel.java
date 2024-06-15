@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class TrainerPanel extends JPanel {
     private static int DIM_WIDTH;
@@ -22,8 +23,9 @@ public class TrainerPanel extends JPanel {
     private JLabel moneyLabel;
     private JLabel seenLabel;
     private JLabel ownLabel;
+    private float scale;
 
-    public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor, int scale) {
+    public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor, float scale) {
         frame = new JFrame("Trainer");
         DIM_WIDTH = 250;
         DIM_HEIGHT = 250;
@@ -31,6 +33,7 @@ public class TrainerPanel extends JPanel {
         frame.setIconImage(frameIcon.getImage());
         this.backgroundColor = bgColor;
         this.setLayout(new FlowLayout());
+        this.scale = scale;
 
         // Money
         moneyLabel = new JLabel("Money: $" + money, SwingConstants.LEFT);
@@ -101,6 +104,11 @@ public class TrainerPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         setBackground(backgroundColor);
-        super.paintComponent(g);
+
+        // Scale to correct size
+        Graphics2D g2 = (Graphics2D)g;
+        g2.scale(scale, scale);
+
+        super.paintComponent(g2);
     }
 }

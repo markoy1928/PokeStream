@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -26,9 +27,9 @@ public class PartyPanel extends JPanel {
     private Color backgroundColor;
     private Color fontColor;
     private String fontFamily;
-    private int scale;
+    private float scale;
 
-    public void createPartyGUI(Pokemon[] party, Color bgColor, String fontFamily, Color fontColor, int scale) {
+    public void createPartyGUI(Pokemon[] party, Color bgColor, String fontFamily, Color fontColor, float scale) {
         frame = new JFrame("Party");
         DIM_WIDTH = 1000;
         DIM_HEIGHT = 325;
@@ -77,7 +78,12 @@ public class PartyPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         setBackground(backgroundColor);
-        super.paintComponent(g);
+        
+        // Scale to correct size
+        Graphics2D g2 = (Graphics2D)g;
+        g2.scale(scale, scale);
+
+        super.paintComponent(g2);
     }
 
     private class PokePanel extends JLayeredPane {
@@ -314,7 +320,12 @@ public class PartyPanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
             setBackground(backgroundColor);
-            super.paintComponent(g);
+
+            // Scale to correct size
+            Graphics2D g2 = (Graphics2D)g;
+            g2.scale(scale, scale);
+
+            super.paintComponent(g2);
         }
     }
 }
