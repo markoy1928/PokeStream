@@ -39,6 +39,8 @@ public class Pokemon {
             return null;
         }
 
+        // Gen 5- sprites come from PokemonDB and Gen6+ sprites come from Pokemon Wiki
+
         // Megas
         if (forms.get(0) == null && forms.get(1).equals("Mega")) {
             // TODO: Megas
@@ -56,285 +58,163 @@ public class Pokemon {
         // Individual Pokemon
         else {
             switch (dexNo) {
-                // TODO: Change form names to numbers
                 // Unown
                 case 201:
-                    switch ((form - 4) / 8) {
-                        case 26:
-                            return forms.get(0);
-
-                        case 27:
-                            return forms.get(1);
-                    
-                        default:
-                            return forms.get(((form - 4) / 8) + 2);
-                    }
+                    return String.valueOf((form - 4) / 8);
 
                 // Castform
                 case 351:
-                    switch ((form - 2) / 8) {
-                        case 1:
-                            return forms.get(3);
-                         
-                        case 2:
-                            return forms.get(1);
-
-                        case 3:
-                            return forms.get(2);
-
-                        default:
-                            return null;
-                    }
+                    return String.valueOf((form - 2) / 8);
             
                 // Deoxys
                 case 386:
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
                     
                 // Burmy
                 case 412:
-                    return forms.get((form - 2) / 8);
+                    return String.valueOf((form - 2) / 8);
 
                 // Wormadam
                 case 413:
-                    return forms.get((form - 2) / 8);
+                    return String.valueOf((form - 2) / 8);
 
                 // Cherrim
                 case 421:
-                    return forms.get((form - 2) / 8);
+                    return String.valueOf((form - 2) / 8);
 
                 // Shellos
                 case 422:
-                    if (((form - 2) / 8) == 0) {
-                        return forms.get(1);
-                    }
-                    else {
-                        return forms.get(0);
-                    }
+                    return String.valueOf((form - 2) / 8);
 
                 // Gastrodon
                 case 423:
-                    if (((form - 2) / 8) == 0) {
-                        return forms.get(1);
-                    }
-                    else {
-                        return forms.get(0);
-                    }
+                    return String.valueOf((form - 2) / 8);
                     
                 // Rotom
                 case 479:
-                    switch ((form - 4) / 8) {
-                        case 1:
-                            return forms.get(3);
-
-                        case 2:
-                            return forms.get(5);
-
-                        case 3:
-                            return forms.get(2);
-
-                        case 4:
-                            return forms.get(1);
-
-                        case 5:
-                            return forms.get(4);
-                    
-                        default:
-                            return null;
-                    }
+                    return String.valueOf((form - 4) / 8);
 
                 // Giratina
                 case 487:
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Shaymin
                 case 492:
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Arceus
                 case 493:
-                    switch ((form - 4) / 8) {
-                        case 1:
-                            // Fighting
-                            return forms.get(4);
-
-                        case 2:
-                            // Flying
-                            return forms.get(6);
-
-                        case 3:
-                            // Poison
-                            return forms.get(12);
-
-                        case 4:
-                            // Ground
-                            return forms.get(9);
-
-                        case 5:
-                            // Rock
-                            return forms.get(14);
-
-                        case 6:
-                            // Bug
-                            return forms.get(0);
-
-                        case 7:
-                            // Ghost
-                            return forms.get(7);
-
-                        case 8:
-                            // Steel
-                            return forms.get(15);
-
-                        case 9:
-                            // Fairy?
-                            return null;
-
-                        case 10:
-                            // Fire
-                            return forms.get(5);
-
-                        case 11:
-                            // Water
-                            return forms.get(16);
-
-                        case 12:
-                            // Grass
-                            return forms.get(8);
-
-                        case 13:
-                            // Electric
-                            return forms.get(3);
-
-                        case 14:
-                            // Psychic
-                            return forms.get(13);
-
-                        case 15:
-                            // Ice
-                            return forms.get(10);
-
-                        case 16:
-                            // Dragon
-                            return forms.get(2);
-
-                        case 17:
-                            // Dark
-                            return forms.get(1);
-
-                        default:
-                            // Normal
-                            return forms.get(11);
-                    }
+                    return String.valueOf((form - 4) / 8);
 
                 // Basculin
                 case 550:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Darmanitan
                 case 555:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Deerling
                 case 585:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Sawsbuck
                 case 586:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Tornadus
                 case 641:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Thundurus
                 case 642:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Landorus
                 case 645:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Kyurem
                 case 646:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Keldeo
                 case 647:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Meloetta
                 case 648:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Genesect
                 case 649:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Vivillon
                 case 666:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Flabébé
                 case 669:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Floette
                 case 670:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Florges
                 case 671:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Furfrou
                 case 676:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Meowstic
                 case 678:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Aegislash
                 case 681:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Pumpkaboo
                 case 710:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Gourgeist
                 case 711:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Xerneas
                 case 716:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 // Hoopa
                 case 720:
                     // TODO
-                    return forms.get((form - 4) / 8);
+                    return String.valueOf((form - 4) / 8);
 
                 default:
                     return null;
