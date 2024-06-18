@@ -375,7 +375,9 @@ end
 
 function readNickname(nick, i)
     local c = DecryptedPKMData[i]
-    if c == 0xFF then
+    if c == nil then
+	return nick
+    elseif c == 0xFF then
         return nick
     elseif c < 0x2B then
         -- Number
