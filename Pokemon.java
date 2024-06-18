@@ -48,6 +48,7 @@ public class Pokemon {
         }
         // Genders
         else if (forms.get(0) != null && (forms.get(0).equals("Male") || forms.get(0).equals("Female"))) {
+            // TODO: Find values for male and female to stop using sql forms
             if (gender == 'M') {
                 return "Male";
             }
