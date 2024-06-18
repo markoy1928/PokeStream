@@ -375,8 +375,8 @@ end
 
 function readNickname(nick, i)
     local c = DecryptedPKMData[i]
-    if c == 0xFF then
-        return nick
+    if c == nil or c == 0x00 or c == 0xFF then
+	return nick
     elseif c < 0x2B then
         -- Number
 		return readNickname(nick .. string.char(c + 0x0F), i + 2)
