@@ -1,17 +1,16 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.Image;
+
 import java.io.File;
 import java.net.URL;
-import java.awt.Color;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import java.awt.Image;
 
 public class BadgesPanel extends JPanel {
     private static int DIM_WIDTH;
@@ -26,8 +25,8 @@ public class BadgesPanel extends JPanel {
     public void createBadgeGUI(Game game, boolean[] badges, Color bgColor, float scale) {
         this.badges = badges;
         BadgesPanel.game = game;
-        DIM_WIDTH = 250;
-        DIM_HEIGHT = getFrameHeight();
+        DIM_WIDTH = Math.round(250 * scale);
+        DIM_HEIGHT = Math.round(getFrameHeight() * scale);
         badgePanels = new BadgePanel[getBadgesLength()];
         frame = new JFrame("Badges");
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
@@ -89,14 +88,8 @@ public class BadgesPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        // TODO: Put scaling here instead
         setBackground(backgroundColor);
-
-        // Scale to correct size
-        Graphics2D g2 = (Graphics2D)g;
-        g2.scale(scale, scale);
-
-        super.paintComponent(g2);
+        super.paintComponent(g);
     }
 
     private class BadgePanel extends JPanel {
@@ -104,13 +97,14 @@ public class BadgesPanel extends JPanel {
 
         public BadgePanel(int gymNumber) {
             this.gymNumber = gymNumber;
-            this.setPreferredSize(new Dimension(100, 100));
+            this.setPreferredSize(new Dimension(Math.round(95 * scale), Math.round(95 * scale)));
+            this.setBackground(backgroundColor);
 
             try {
                 File f = new File(getFilePath());
                 URL imgUrl = f.toURI().toURL();
                 Icon icon = new ImageIcon(imgUrl);
-                ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(80, 80, Image.SCALE_FAST));
+                ((ImageIcon) icon).setImage(((ImageIcon) icon).getImage().getScaledInstance(Math.round(80 * scale), Math.round(80 * scale), Image.SCALE_FAST));
 
                 JLabel bLabel = new JLabel(icon);
                 this.add(bLabel);
@@ -140,17 +134,6 @@ public class BadgesPanel extends JPanel {
             else {
                 return "Badges/" + badgeName.toLowerCase() + "-empty.png";
             }
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            setBackground(backgroundColor);
-
-            // Scale to correct size
-            Graphics2D g2 = (Graphics2D)g;
-            g2.scale(scale, scale);
-
-            super.paintComponent(g2);
         }
     }
 }

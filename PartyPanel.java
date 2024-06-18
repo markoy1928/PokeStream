@@ -320,12 +320,7 @@ public class PartyPanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
             setBackground(backgroundColor);
-
-            // Scale to correct size
-            Graphics2D g2 = (Graphics2D)g;
-            g2.scale(scale, scale);
-
-            super.paintComponent(g2);
+            super.paintComponent(g);
         }
     }
 }

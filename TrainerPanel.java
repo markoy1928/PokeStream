@@ -17,50 +17,24 @@ public class TrainerPanel extends JPanel {
     private static int DIM_HEIGHT;
     private JFrame frame;
     private Color backgroundColor;
-    private JPanel moneyPanel;
-    private JPanel seenPanel;
-    private JPanel ownPanel;
-    private JLabel moneyLabel;
-    private JLabel seenLabel;
-    private JLabel ownLabel;
+    private TextPanel moneyPanel;
+    private TextPanel seenPanel;
+    private TextPanel ownPanel;
     private float scale;
 
     public void createTrainerGUI(int money, int seen, int own, Color bgColor, String fontFamily, Color fontColor, float scale) {
         frame = new JFrame("Trainer");
-        DIM_WIDTH = 250;
-        DIM_HEIGHT = 250;
+        DIM_WIDTH = Math.round(250 * scale);
+        DIM_HEIGHT = Math.round(250 * scale);
         ImageIcon frameIcon = new ImageIcon("Pokemon/Dragapult.png");
         frame.setIconImage(frameIcon.getImage());
         this.backgroundColor = bgColor;
         this.setLayout(new FlowLayout());
         this.scale = scale;
 
-        // Money
-        moneyLabel = new JLabel("Money: $" + money, SwingConstants.LEFT);
-        moneyLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
-        moneyLabel.setForeground(fontColor);
-        moneyPanel = new JPanel(new BorderLayout());
-        moneyPanel.setBackground(bgColor);
-        moneyPanel.add(moneyLabel, BorderLayout.WEST);
-        moneyPanel.setPreferredSize(new Dimension(DIM_WIDTH - (20), 50));
-
-        // Pokemon Seen
-        seenLabel = new JLabel("Seen: " + seen, SwingConstants.LEFT);
-        seenLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
-        seenLabel.setForeground(fontColor);
-        seenPanel = new JPanel(new BorderLayout());
-        seenPanel.setBackground(bgColor);
-        seenPanel.add(seenLabel, BorderLayout.WEST);
-        seenPanel.setPreferredSize(new Dimension(DIM_WIDTH - (20), 50));
-
-        // Pokemon Owned
-        ownLabel = new JLabel("Caught: " + own, SwingConstants.LEFT);
-        ownLabel.setFont(new Font(fontFamily, Font.PLAIN, 30));
-        ownLabel.setForeground(fontColor);
-        ownPanel = new JPanel(new BorderLayout());
-        ownPanel.setBackground(bgColor);
-        ownPanel.add(ownLabel, BorderLayout.WEST);
-        ownPanel.setPreferredSize(new Dimension(DIM_WIDTH - (20), 50));
+        moneyPanel = new TextPanel("Money: $" + money, bgColor, fontFamily, fontColor);
+        seenPanel = new TextPanel("Seen: " + seen, bgColor, fontFamily, fontColor);
+        ownPanel = new TextPanel("Caught: " + own, bgColor, fontFamily, fontColor);
 
         this.add(moneyPanel);
         this.add(seenPanel);
@@ -77,16 +51,9 @@ public class TrainerPanel extends JPanel {
     public void refreshPanel(int money, int seen, int own) {
         frame.getContentPane().removeAll();
 
-        moneyLabel.setText("Money: $" + money);
-        seenLabel.setText("Seen: " + seen);
-        ownLabel.setText("Caught: " + own);
-
-        moneyPanel.removeAll();
-        seenPanel.removeAll();
-        ownPanel.removeAll();
-        moneyPanel.add(moneyLabel);
-        seenPanel.add(seenLabel);
-        ownPanel.add(ownLabel);
+        moneyPanel.refreshPanel("Money: $" + money);
+        seenPanel.refreshPanel("Seen: " + seen);
+        ownPanel.refreshPanel("Caught: " + own);
         
         this.add(moneyPanel);
         this.add(seenPanel);
@@ -104,11 +71,41 @@ public class TrainerPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         setBackground(backgroundColor);
+        super.paintComponent(g);
+    }
 
-        // Scale to correct size
-        Graphics2D g2 = (Graphics2D)g;
-        g2.scale(scale, scale);
+    private class TextPanel extends JPanel {
+        private JLabel textLabel;
 
-        super.paintComponent(g2);
+        public TextPanel(String text, Color bgColor, String fontFamily, Color fontColor) {
+            textLabel = new JLabel(text, SwingConstants.LEFT);
+            textLabel.setFont(new Font(fontFamily, Font.BOLD, 30));
+            textLabel.setForeground(fontColor);
+            this.setLayout(new BorderLayout());
+            this.setBackground(bgColor);
+            this.add(textLabel, BorderLayout.WEST);
+            this.setPreferredSize(new Dimension(DIM_WIDTH - Math.round(20 * scale), Math.round(70 * scale)));
+        }
+
+        public void refreshPanel(String text) {
+            textLabel.setText(text);
+
+            this.removeAll();
+            this.add(textLabel, BorderLayout.WEST);
+
+            this.revalidate();
+            this.repaint();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            setBackground(backgroundColor);
+
+            // Scale to correct size
+            Graphics2D g2 = (Graphics2D)g;
+            g2.scale(scale, scale);
+
+            super.paintComponent(g2);
+        }
     }
 }
