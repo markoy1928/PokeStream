@@ -383,7 +383,7 @@ function readNickname(nick, i)
     elseif c < 0x45 then
         -- Uppercase
         return readNickname(nick .. string.char(c + 0x16), i + 2)
-	elseif c < 0x7A then
+	elseif c < 0x5F then
         -- Lowercase
         return readNickname(nick .. string.char(c + 0x1C), i + 2)
     elseif c == 0xAB then
