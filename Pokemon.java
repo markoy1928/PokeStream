@@ -35,9 +35,11 @@ public class Pokemon {
         PokeDB db = new PokeDB();
         Vector<String> forms = db.select("Pokemon", "form", "dex = " + dexNo);
 
-        if (forms.isEmpty() || forms.size() == 1) {
+        if (forms.isEmpty() || (forms.get(0) == null && forms.size() == 1)) {
             return null;
         }
+
+        // System.out.println(form);
 
         // Gen 5- sprites come from PokemonDB and Gen6+ sprites come from Pokemon Wiki
 
