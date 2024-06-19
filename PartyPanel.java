@@ -151,7 +151,13 @@ public class PartyPanel extends JPanel {
                 // Add name and level of pokemon
                 pokemonName = new JPanel(new BorderLayout());
                 pokemonName.setBackground(bgColor);
-                JLabel pkLevel = new JLabel("Level " + pokemon.getLevel(), SwingConstants.CENTER);
+                JLabel pkLevel = new JLabel();
+                pkLevel.setHorizontalAlignment(SwingConstants.CENTER);
+
+                if (pokemon.getLevel() != 0) {
+                    pkLevel.setText("Level " + pokemon.getLevel());
+                }
+
                 JLabel pkName = new JLabel(pokemon.getNickname(), SwingConstants.CENTER);
                 pkLevel.setFont(new Font(fontFamily, Font.PLAIN, 15));
                 pkLevel.setForeground(fontColor);
