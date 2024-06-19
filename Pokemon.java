@@ -39,8 +39,6 @@ public class Pokemon {
             return null;
         }
 
-        // System.out.println(form);
-
         // Gen 5- sprites come from PokemonDB and Gen6+ sprites come from Pokemon Wiki
 
         // Megas
