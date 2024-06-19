@@ -309,17 +309,12 @@ public class Pokemon {
             sp = "Nidoran";
         }
 
-        // Fix path for Unown ?
-        if (sp == "Unown" && form == "?") {
-            form = "question";
-        }
-
         if (egg) {
             gif = "egg.gif";
         }
         else {
             if (species == null) {
-                gif = "missingno.png";
+                gif = null;
             }
             else if (form == null) {
                 gif = sp.toLowerCase() + ".gif";
