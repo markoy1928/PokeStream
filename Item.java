@@ -50,8 +50,7 @@ public class Item {
     }
 
     public boolean exists() {
-        // TODO: Add name is not null here too
-        if (index == 0) {
+        if (index == 0 || name == null) {
             return false;
         }
         else {
