@@ -1,10 +1,13 @@
 import java.awt.Color;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class PokeStream {
     private static Trainer player;
@@ -83,7 +86,15 @@ public class PokeStream {
             trainerEnabled = (boolean)jsonObject.get("Trainer Enabled");
             scale = (float)((double)jsonObject.get("Scale"));
         }
-        catch (Exception e) {
+        catch (ParseException e) {
+            System.out.println("Warning: Issue with parsing");
+        }
+        catch (FileNotFoundException e) {
+            System.err.println("ERROR: " + e.getMessage());
+            System.err.println(e.getStackTrace()[0].getLineNumber());
+            System.err.println(e.getStackTrace()[0].getFileName());
+        }
+        catch (IOException e) {
             System.err.println("ERROR: " + e.getMessage());
             System.err.println(e.getStackTrace()[0].getLineNumber());
             System.err.println(e.getStackTrace()[0].getFileName());

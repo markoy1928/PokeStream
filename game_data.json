@@ -1,236 +1,211 @@
 {
-    "game": "HGSS",
-    "badges": [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false
-    ],
-    "money": 3000,
-    "seen": 0,
-    "own": 0,
-    "party": [
-        {
-            "pid": 0,
-            "dex": 0,
-            "gender": 0,
-            "hp": 0,
-            "maxHP": 0,
-            "level": 0,
-            "status": 0,
-            "item": 0,
-            "nickname": "",
-            "form": 0,
-            "egg": false,
-            "moves": [
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                }
-            ]
-        },
-        {
-            "pid": 0,
-            "dex": 0,
-            "gender": 0,
-            "hp": 0,
-            "maxHP": 0,
-            "level": 0,
-            "status": 0,
-            "item": 0,
-            "nickname": "",
-            "form": 0,
-            "egg": false,
-            "moves": [
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                }
-            ]
-        },
-        {
-            "pid": 0,
-            "dex": 0,
-            "gender": 0,
-            "hp": 0,
-            "maxHP": 0,
-            "level": 0,
-            "status": 0,
-            "item": 0,
-            "nickname": "",
-            "form": 0,
-            "egg": false,
-            "moves": [
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                }
-            ]
-        },
-        {
-            "pid": 0,
-            "dex": 0,
-            "gender": 0,
-            "hp": 0,
-            "maxHP": 0,
-            "level": 0,
-            "status": 0,
-            "item": 0,
-            "nickname": "",
-            "form": 0,
-            "egg": false,
-            "moves": [
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                }
-            ]
-        },
-        {
-            "pid": 0,
-            "dex": 0,
-            "gender": 0,
-            "hp": 0,
-            "maxHP": 0,
-            "level": 0,
-            "status": 0,
-            "item": 0,
-            "nickname": "",
-            "form": 0,
-            "egg": false,
-            "moves": [
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                }
-            ]
-        },
-        {
-            "pid": 0,
-            "dex": 0,
-            "gender": 0,
-            "hp": 0,
-            "maxHP": 0,
-            "level": 0,
-            "status": 0,
-            "item": 0,
-            "nickname": "",
-            "form": 0,
-            "egg": false,
-            "moves": [
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                },
-                {
-                    "move": 0,
-                    "pp": 0,
-                    "maxPP": 0
-                }
-            ]
-        }
-    ]
+"game": "HGSS",
+"badges": [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+"money": 2960,
+"seen": 3,
+"own": 1,
+"party":[{
+"pid": -1064314541,
+"dex": 155,
+"gender": 0,
+"hp": 17,
+"maxHP": 21,
+"level": 6,
+"status": 0,
+"item": 0,
+"nickname": "Inferno",
+"form": 0,
+"egg": false,
+"moves":[
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
 }
+]},
+{
+"pid": 0,
+"dex": 0,
+"gender": 0,
+"hp": 0,
+"maxHP": 0,
+"level": 0,
+"status": 0,
+"item": 0,
+"nickname": "",
+"form": 0,
+"egg": false,
+"moves":[
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+}
+]},
+{
+"pid": 0,
+"dex": 0,
+"gender": 0,
+"hp": 0,
+"maxHP": 0,
+"level": 0,
+"status": 0,
+"item": 0,
+"nickname": "",
+"form": 0,
+"egg": false,
+"moves":[
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+}
+]},
+{
+"pid": 0,
+"dex": 0,
+"gender": 0,
+"hp": 0,
+"maxHP": 0,
+"level": 0,
+"status": 0,
+"item": 0,
+"nickname": "",
+"form": 0,
+"egg": false,
+"moves":[
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+}
+]},
+{
+"pid": 0,
+"dex": 0,
+"gender": 0,
+"hp": 0,
+"maxHP": 0,
+"level": 0,
+"status": 0,
+"item": 0,
+"nickname": "",
+"form": 0,
+"egg": false,
+"moves":[
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+}
+]},
+{
+"pid": 0,
+"dex": 0,
+"gender": 0,
+"hp": 0,
+"maxHP": 0,
+"level": 0,
+"status": 0,
+"item": 0,
+"nickname": "",
+"form": 0,
+"egg": false,
+"moves":[
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+},
+{
+"move": 0,
+"pp": 0,
+"maxPP": 0
+}
+]}
+]}
